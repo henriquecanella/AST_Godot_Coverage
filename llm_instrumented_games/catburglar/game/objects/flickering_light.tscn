@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://26dcmt2uqm4y"]
+
+[ext_resource type="Texture2D" uid="uid://uwtubhqdbs21" path="res://sprites/lights/circle1.png" id="1_1bo2a"]
+[ext_resource type="Script" path="res://objects/flickering_light.gd" id="2_12v0c"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="FlickeringLight" type="PointLight2D" groups=["illuminator"]]
+color = Color(1, 0.941176, 0.752941, 1)
+shadow_enabled = true
+texture = ExtResource("1_1bo2a")
+script = ExtResource("2_12v0c")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 3
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "flickering_light"
+object_type = 4

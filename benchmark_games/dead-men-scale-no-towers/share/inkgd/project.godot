@@ -1,0 +1,53 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="inkgd"
+run/main_scene="res://examples/scenes/main.tscn"
+config/features=PackedStringArray("4.2", "C#")
+boot_splash/bg_color=Color(0.929412, 0.898039, 0.854902, 1)
+boot_splash/image="res://examples/images/transparent.png"
+boot_splash/fullsize=false
+config/icon="res://icons/icon.png"
+
+[debug]
+
+gdscript/warnings/exclude_addons=false
+gdscript/warnings/unused_variable=false
+gdscript/warnings/native_method_override=1
+gdscript/completion/autocomplete_setters_and_getters=true
+gdscript/warnings/unused_argument=false
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[dotnet]
+
+project/assembly_name="inkgd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg", "res://addons/inkgd/plugin.cfg")
+
+[inkgd]
+
+register_templates=false
+use_mono_runtime=true
+
+[network]
+
+limits/debugger/max_chars_per_second=600000
+
+[rendering]
+
+environment/defaults/default_environment="res://default_env.tres"

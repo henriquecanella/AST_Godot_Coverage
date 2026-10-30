@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcv1iqay33qep"]
+
+[ext_resource type="Texture2D" uid="uid://uwtubhqdbs21" path="res://sprites/lights/circle1.png" id="1_acc8v"]
+[ext_resource type="Script" path="res://objects/light.gd" id="2_x78r6"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_353od"]
+radius = 8.0
+
+[node name="Light" type="PointLight2D" groups=["illuminator"]]
+color = Color(1, 0.941176, 0.752941, 1)
+shadow_enabled = true
+texture = ExtResource("1_acc8v")
+script = ExtResource("2_x78r6")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_353od")
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "light"
+object_type = 4

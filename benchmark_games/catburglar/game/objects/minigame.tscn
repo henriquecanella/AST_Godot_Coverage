@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://dv15ok1gu3g6l"]
+
+
+[ext_resource type="Texture2D" uid="uid://ch3qjq80rkfat" path="res://sprites/minigame/background.png" id="1_4245s"]
+[ext_resource type="Script" path="res://objects/minigame.gd" id="1_uyrc2"]
+[ext_resource type="Texture2D" uid="uid://ck56e00b007lg" path="res://sprites/minigame/progress.png" id="2_dvjwv"]
+[ext_resource type="Texture2D" uid="uid://ttxinhahp78h" path="res://sprites/minigame/arrows.png" id="3_girdl"]
+[ext_resource type="Texture2D" uid="uid://dmwbkcsrmijxg" path="res://sprites/minigame/timer.png" id="4_vyjxg"]
+[ext_resource type="AudioStream" uid="uid://bcjqf2fqlokw0" path="res://audio/amb/hacking.ogg" id="6_w0fu3"]
+[ext_resource type="AudioStream" uid="uid://decvaljuqa3g8" path="res://audio/sfx/hack_yes.ogg" id="7_56p0t"]
+[ext_resource type="AudioStream" uid="uid://cphdv1qpacjn0" path="res://audio/sfx/hack_no.ogg" id="8_nup70"]
+[ext_resource type="Script" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="Minigame" type="Node2D"]
+script = ExtResource("1_uyrc2")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(4, 0)
+texture = ExtResource("1_4245s")
+
+[node name="Progress" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 28)
+texture = ExtResource("2_dvjwv")
+vframes = 6
+
+[node name="Arrow_Up" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("3_girdl")
+hframes = 4
+
+[node name="Arrow_Down" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 16)
+texture = ExtResource("3_girdl")
+hframes = 4
+frame = 1
+
+[node name="Arrow_Left" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-16, 0)
+texture = ExtResource("3_girdl")
+hframes = 4
+frame = 2
+
+[node name="Arrow_Right" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 0)
+texture = ExtResource("3_girdl")
+hframes = 4
+frame = 3
+
+[node name="Timer" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -27.5)
+texture = ExtResource("4_vyjxg")
+
+[node name="Audio_BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_w0fu3")
+volume_db = -5.0
+bus = &"amb"
+
+[node name="Audio_Yes" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_56p0t")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="Audio_No" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nup70")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "minigame"
+object_type = 0

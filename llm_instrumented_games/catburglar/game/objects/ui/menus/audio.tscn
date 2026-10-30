@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlkta45kvdfku"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_jjsf8"]
+[ext_resource type="PackedScene" uid="uid://bjgcuauwpy41d" path="res://objects/ui/menu/menu_item_title_bar.tscn" id="2_pn4ms"]
+[ext_resource type="PackedScene" uid="uid://dvaq2d5kw48yf" path="res://objects/ui/menu/menu_item_volume.tscn" id="3_bmed8"]
+[ext_resource type="PackedScene" uid="uid://mkrn1dowrter" path="res://objects/ui/menu/menu_item_gap.tscn" id="5_xhr3d"]
+[ext_resource type="PackedScene" uid="uid://hc8gvdg03bpo" path="res://objects/ui/menu/menu_item_button.tscn" id="6_cp46k"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="Audio" type="VBoxContainer"]
+texture_filter = 1
+offset_right = 384.0
+offset_bottom = 405.0
+theme_override_constants/separation = 0
+script = ExtResource("1_jjsf8")
+
+[node name="Title" parent="." instance=ExtResource("2_pn4ms")]
+layout_mode = 2
+title = "Audio"
+
+[node name="SFX" parent="." instance=ExtResource("3_bmed8")]
+layout_mode = 2
+id = "sfx"
+title = "SFX"
+
+[node name="BGM" parent="." instance=ExtResource("3_bmed8")]
+layout_mode = 2
+id = "bgm"
+title = "BGM"
+
+[node name="UI" parent="." instance=ExtResource("3_bmed8")]
+layout_mode = 2
+id = "ui"
+title = "UI"
+
+[node name="Ambience" parent="." instance=ExtResource("3_bmed8")]
+layout_mode = 2
+id = "amb"
+title = "Ambience"
+
+[node name="VO" parent="." instance=ExtResource("3_bmed8")]
+layout_mode = 2
+id = "vo"
+title = "Voice"
+
+[node name="MenuItem_Gap" parent="." instance=ExtResource("5_xhr3d")]
+layout_mode = 2
+
+[node name="Back" parent="." instance=ExtResource("6_cp46k")]
+layout_mode = 2
+id = "back"
+title = "Back"
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "audio"
+object_type = 4

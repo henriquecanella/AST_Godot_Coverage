@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://81eu6l65tbys"]
+
+[ext_resource type="SpriteFrames" uid="uid://1vbv2fn0hbrq" path="res://classes/interactable/door/skins/castle_door_diamond.tres" id="1"]
+[ext_resource type="Script" path="res://classes/interactable/door/double_doors.gd" id="2"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script_auto"]
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(38, 32)
+
+[node name="DoubleDoor" type="Area2D"]
+monitorable = false
+script = ExtResource("2")
+door_graphic = ExtResource("1")
+sprite = NodePath("SpriteL")
+
+[node name="SpriteL" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -32)
+rotation = 3.14159
+scale = Vector2(1, -1)
+sprite_frames = ExtResource("1")
+animation = &"opening"
+centered = false
+
+[node name="SpriteR" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -32)
+sprite_frames = ExtResource("1")
+animation = &"opening"
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("2")
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script_auto")
+object_id = "double_door"
+object_type = 4
+

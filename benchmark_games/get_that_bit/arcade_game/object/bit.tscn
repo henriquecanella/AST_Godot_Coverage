@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b6tgfty1qdw4a"]
+
+[ext_resource type="Texture2D" uid="uid://b6tw7cndx85hk" path="res://arcade_game/assets/sprites.png" id="1_0der0"]
+[ext_resource type="Script" uid="uid://cu3gmsevb2vkn" path="res://arcade_game/object/bit.gd" id="1_3fkug"]
+[ext_resource type="AudioStream" uid="uid://i2h5p8hq47l6" path="res://arcade_game/assets/audio_pickup_bit_1.wav" id="3_bxssf"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="4_y0ujv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pwx8"]
+size = Vector2(2, 2)
+
+[node name="Bit" type="Area2D" unique_id=1238165134]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_3fkug")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1732959560]
+shape = SubResource("RectangleShape2D_6pwx8")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1199049945]
+texture = ExtResource("1_0der0")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 8)
+
+[node name="AudioPickedUp" type="AudioStreamPlayer2D" parent="." unique_id=1870138391]
+stream = ExtResource("3_bxssf")
+volume_db = -10.0
+
+[node name="Trackable" type="Node" parent="." unique_id=1730713185]
+script = ExtResource("4_y0ujv")
+object_id = "Bit_01"
+object_type = 2
+metadata/_custom_type_script = "uid://631jm7xfjvbg"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioPickedUp" to="." method="_on_audio_picked_up_finished"]

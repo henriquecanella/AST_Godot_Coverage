@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bclig81j8t46n"]
+
+[ext_resource type="Script" path="res://classes/zone/trigger/warpzone/warp_zone.gd" id="1"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script_auto"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[node name="WarpZone" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+input_pickable = false
+monitorable = false
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script_auto")
+object_id = "warp_zone"
+object_type = 4
+
+[connection signal="body_entered" from="." to="." method="_on_WarpZone_body_entered"]

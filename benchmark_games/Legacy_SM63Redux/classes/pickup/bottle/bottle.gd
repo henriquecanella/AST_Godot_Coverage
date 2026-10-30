@@ -1,0 +1,17 @@
+class_name Bottle
+extends Pickup
+
+
+@export var amount: int = 15
+
+
+func _award_pickup(_body) -> void:
+	if has_node("Trackable"):
+		$Trackable.setup_coverage()
+	if _body.water < 100:
+		_body.water = min(_body.water + amount, 100)
+
+
+func set_disabled(value):
+	disabled = value
+	set_deferred("monitoring", !value)

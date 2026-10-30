@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cfqjx3j1j24sp"]
+
+[ext_resource type="Script" uid="uid://ds5avlm7f0efc" path="res://scripts/gui/hud.gd" id="1_ubfpr"]
+[ext_resource type="Texture2D" uid="uid://b1cd6upg218v5" path="res://assets/kenney_pixelplatformer/Tiles/tile_0151.png" id="2_5j6ys"]
+[ext_resource type="Texture2D" uid="uid://ytixbp34hbf3" path="res://assets/kenney_pixelplatformer/Tiles/tile_0046.png" id="2_gvswv"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="4_ueg55"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_32qq0"]
+font_size = 24
+font_color = Color(1, 0.392157, 0.0823529, 1)
+outline_size = 8
+
+[node name="HUD" type="MarginContainer" unique_id=1838518316]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+script = ExtResource("1_ubfpr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=361756712]
+layout_mode = 2
+
+[node name="HealthDisplay" type="HBoxContainer" parent="VBoxContainer" unique_id=1037353853]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HealthDisplay" unique_id=1535416661]
+layout_mode = 2
+texture = ExtResource("2_gvswv")
+flip_h = true
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HealthDisplay" unique_id=1377515808]
+layout_mode = 2
+texture = ExtResource("2_gvswv")
+flip_h = true
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HealthDisplay" unique_id=937224594]
+layout_mode = 2
+texture = ExtResource("2_gvswv")
+flip_h = true
+
+[node name="CoinDisplay" type="HBoxContainer" parent="VBoxContainer" unique_id=575704745]
+layout_mode = 2
+alignment = 2
+
+[node name="CoinCount" type="Label" parent="VBoxContainer/CoinDisplay" unique_id=231661711]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x0"
+label_settings = SubResource("LabelSettings_32qq0")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CoinDisplay" unique_id=1539550897]
+layout_mode = 2
+texture = ExtResource("2_5j6ys")
+stretch_mode = 3
+
+[node name="Trackable" type="Node" parent="." unique_id=857325918]
+script = ExtResource("4_ueg55")
+object_id = "HUD"
+object_type = 4
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

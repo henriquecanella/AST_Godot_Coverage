@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://dumf7u8p1rdmv"]
+
+[ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_okfed"]
+[ext_resource type="Texture2D" uid="uid://dd4870wip81gy" path="res://sprites/background.png" id="2_xqiwq"]
+[ext_resource type="TileSet" uid="uid://chsne2qg356r2" path="res://tilesets/tileset.tres" id="3_by6g2"]
+[ext_resource type="PackedScene" uid="uid://cp23fhb4v3gty" path="res://objects/player.tscn" id="4_3qu34"]
+[ext_resource type="PackedScene" uid="uid://bf1drr1n10l11" path="res://objects/camera.tscn" id="5_2vqe7"]
+[ext_resource type="PackedScene" uid="uid://b0pwne8tissnt" path="res://objects/level_exit.tscn" id="7_f0a8d"]
+[ext_resource type="PackedScene" uid="uid://ctu21mpqd6ic7" path="res://objects/hud.tscn" id="19_t05s7"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="LevelTemplate" type="Node"]
+process_mode = 1
+script = ExtResource("1_okfed")
+path_scenario = NodePath("Scenario")
+path_player = NodePath("Player")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(256, 144)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xqiwq")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("3_by6g2")
+format = 2
+layer_0/name = "Foreground"
+layer_0/z_index = -5
+layer_1/name = "Background"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = -15
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Player" parent="." instance=ExtResource("4_3qu34")]
+
+[node name="Camera" parent="." instance=ExtResource("5_2vqe7")]
+limit_left = -64
+limit_top = -64
+limit_right = 480
+limit_bottom = 256
+player = NodePath("../Player")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.12549, 0.156863, 0.25098, 1)
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Pipes" type="Node" parent="."]
+
+[node name="Treasure" type="Node" parent="."]
+
+[node name="Guards" type="Node" parent="."]
+
+[node name="PatrolPaths" type="Node" parent="."]
+
+[node name="SecurityCameras" type="Node" parent="."]
+
+[node name="Furniture" type="Node" parent="."]
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="Dialogues" type="Node" parent="."]
+
+[node name="Hints" type="Node" parent="."]
+
+[node name="Misc" type="Node" parent="."]
+
+[node name="LevelExit" parent="Misc" instance=ExtResource("7_f0a8d")]
+position = Vector2(32, 0)
+
+[node name="HUD" parent="." instance=ExtResource("19_t05s7")]
+visible = false
+path_player = NodePath("../Player")
+
+[node name="Scenario" type="Node" parent="."]
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "template"
+object_type = 4
+
+[connection signal="caught" from="Player" to="." method="_on_player_caught"]
+[connection signal="escaped" from="Player" to="." method="_on_player_escaped"]
+[connection signal="started_hacking" from="Player" to="." method="_on_player_started_hacking"]
+[connection signal="minigame_failed" from="HUD" to="." method="_on_hud_minigame_failed"]
+[connection signal="minigame_succeeded" from="HUD" to="." method="_on_hud_minigame_succeeded"]

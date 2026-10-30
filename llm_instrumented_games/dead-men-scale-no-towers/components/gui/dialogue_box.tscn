@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://byace6ryt582g"]
+
+[ext_resource type="Theme" uid="uid://dwb6kbnquwyb2" path="res://components/gui/assets/dialogue_box.tres" id="1_mv6dm"]
+[ext_resource type="Script" path="res://components/gui/typing_effect.gd" id="2_jhkji"]
+[ext_resource type="Script" path="res://components/gui/dialogue_box.gd" id="2_tycy6"]
+[ext_resource type="Script" path="res://components/gui/gui_input_component.gd" id="4_u64bv"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="5_track"]
+
+[node name="DialogueBox" type="PanelContainer" node_paths=PackedStringArray("typing_effect")]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 304.0
+offset_bottom = 80.0
+theme = ExtResource("1_mv6dm")
+script = ExtResource("2_tycy6")
+typing_effect = NodePath("MarginContainer/Label/TypingEffect")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 8
+text = "some lines"
+autowrap_mode = 3
+
+[node name="TypingEffect" type="Node" parent="MarginContainer/Label"]
+script = ExtResource("2_jhkji")
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource("4_u64bv")
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("5_track")
+object_id = "dialogue_box"
+object_type = 4

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://mkrn1dowrter"]
+
+
+[ext_resource type="Script" path="res://objects/ui/menu/menu_item_gap.gd" id="1_nrmat"]
+[ext_resource type="Script" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="MenuItem_Gap" type="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 27)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1253.0
+offset_bottom = -693.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nrmat")
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "menu_item_gap"
+object_type = 6

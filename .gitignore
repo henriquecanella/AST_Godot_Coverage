@@ -1,0 +1,15 @@
+# Godot 4.x engine cache and imports
+.godot/
+*/.godot/
+*/*/.godot/
+*/*/*/.godot/
+
+# Temporary and OS files
+*.tmp
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+
+# Editor project settings local overrides
+*.override

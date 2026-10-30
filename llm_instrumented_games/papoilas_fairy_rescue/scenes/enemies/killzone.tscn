@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c85r26su1qgfe"]
+
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+[ext_resource type="Script" path="res://scripts/enemies/killzone.gd" id="1_567s7"]
+
+[node name="Killzone" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_567s7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "killzone"
+object_type = 5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://byace6ryt582g"]
+
+[ext_resource type="Theme" uid="uid://dwb6kbnquwyb2" path="res://components/gui/assets/dialogue_box.tres" id="1_mv6dm"]
+[ext_resource type="Script" uid="uid://p4cb76ydpbke" path="res://components/gui/typing_effect.gd" id="2_jhkji"]
+[ext_resource type="Script" uid="uid://c7dr65skmd5dc" path="res://components/gui/dialogue_box.gd" id="2_tycy6"]
+[ext_resource type="Script" uid="uid://ch6cut6wwmbip" path="res://components/gui/gui_input_component.gd" id="4_u64bv"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="5_b2lxu"]
+
+[node name="DialogueBox" type="PanelContainer" unique_id=729973619 node_paths=PackedStringArray("typing_effect")]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 304.0
+offset_bottom = 80.0
+theme = ExtResource("1_mv6dm")
+script = ExtResource("2_tycy6")
+typing_effect = NodePath("MarginContainer/Label/TypingEffect")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=767925461]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1308601548]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 8
+text = "some lines"
+autowrap_mode = 3
+
+[node name="TypingEffect" type="Node" parent="MarginContainer/Label" unique_id=1862737644]
+script = ExtResource("2_jhkji")
+
+[node name="Input" type="Node" parent="." unique_id=1310584164]
+script = ExtResource("4_u64bv")
+
+[node name="Trackable" type="Node" parent="." unique_id=1578593131]
+script = ExtResource("5_b2lxu")
+object_id = "Dialogue_Box"
+object_type = 4
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

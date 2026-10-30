@@ -1,0 +1,240 @@
+[gd_scene load_steps=11 format=3 uid="uid://v3a8dskxord5"]
+
+[ext_resource type="Texture2D" uid="uid://dsavliaq6yeck" path="res://sprites/ending.png" id="1_b5vyb"]
+[ext_resource type="Script" path="res://scenes/ending.gd" id="1_qymq5"]
+[ext_resource type="AudioStream" uid="uid://c1mt12x431j1b" path="res://audio/vo/ending.ogg" id="2_x03qr"]
+[ext_resource type="AudioStream" uid="uid://d2sjpo0g5bsly" path="res://audio/amb/beach.ogg" id="3_c43lt"]
+[ext_resource type="FontFile" uid="uid://dobcyrrdj03ub" path="res://fonts/CaviarDreams.ttf" id="3_ytmr0"]
+[ext_resource type="FontFile" uid="uid://cwgn18qi488vs" path="res://fonts/breamcatcher rg.otf" id="4_fm7bh"]
+[ext_resource type="AudioStream" uid="uid://cl8jn8rddlc0m" path="res://audio/music/ending.ogg" id="7_y3nou"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="Animation" id="Animation_qn46v"]
+resource_name = "ending"
+length = 45.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-640, 0), Vector2(-640, 0), Vector2(0, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio_VO")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_x03qr")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7, 9, 41, 45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio_Ambience")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_c43lt")
+}],
+"times": PackedFloat32Array(5)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio_Ambience:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5, 10, 41, 45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-60.0, -60.0, -15.0, -15.0, -60.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label_Subtitle:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.7, 8.1, 12.7, 17, 19.2, 22.2, 25.2, 28.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["See, here's the thing about making powerful people angry...", "You've gotta do it from a distance. ", "That, or make sure you're already running in the opposite direction by the time they find out. ", "It's a miracle I made it out of there with my tail still on.", "My contact's gone dark.", "For all I know, they were in on the plan all along. ", "Hope they're enjoying the fallout.", "As for me: I'll lie low for a while.", "It's far from home... but there are worse places to be when you're in hiding."]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label_Subtitle:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 15.5, 17, 33.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Label_ThankYou:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 35, 36, 40, 41),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Audio_BGM")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_y3nou")
+}],
+"times": PackedFloat32Array(8)
+}
+tracks/8/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vwbv8"]
+_data = {
+"ending": SubResource("Animation_qn46v")
+}
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qymq5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -640.0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_b5vyb")
+
+[node name="Label_Subtitle" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -272.0
+offset_right = 360.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_ytmr0")
+theme_override_font_sizes/font_size = 40
+text = "See, here's the thing about making powerful people angry..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label_ThankYou" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -403.5
+offset_top = -272.0
+offset_right = 403.5
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("4_fm7bh")
+theme_override_font_sizes/font_size = 120
+text = "Thank You For Playing!"
+horizontal_alignment = 1
+
+[node name="Label_MadeForGWJ" type="Label" parent="Label_ThankYou"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -20.0
+offset_right = 218.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("4_fm7bh")
+theme_override_font_sizes/font_size = 50
+text = "Made for Godot Wild Jam #63"
+horizontal_alignment = 1
+
+[node name="Audio_Ambience" type="AudioStreamPlayer" parent="."]
+volume_db = -60.0
+bus = &"AMB"
+
+[node name="Audio_BGM" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+bus = &"BGM"
+
+[node name="Audio_VO" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vwbv8")
+}
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "ending"
+object_type = 4
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

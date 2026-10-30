@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://hxebst30nlht"]
+
+[ext_resource type="Script" path="res://objects/searchable.gd" id="1_3bkfp"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="Searchable" type="Area2D" groups=["searchable"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_3bkfp")
+
+[node name="Audio_Searched" type="AudioStreamPlayer2D" parent="."]
+bus = &"sfx"
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "searchable"
+object_type = 4

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqw0d7ada657g"]
+
+[ext_resource type="Script" path="res://objects/pipe.gd" id="1_76x1n"]
+[ext_resource type="Texture2D" uid="uid://b55tuqsfcht5a" path="res://sprites/pipe.png" id="1_e5ahl"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrw7w"]
+size = Vector2(16, 16)
+
+[node name="Pipe" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_76x1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_e5ahl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-16, -8, -16, -16, 24, -16, 24, 16, 16, 16, 16, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_xrw7w")
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "pipe"
+object_type = 4
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

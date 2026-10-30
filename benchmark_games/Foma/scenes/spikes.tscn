@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dna6vpm0ybyxe"]
+
+[ext_resource type="Script" uid="uid://mfro3jwpe2ee" path="res://scripts/spikes.gd" id="1_6dyq6"]
+[ext_resource type="Texture2D" uid="uid://cn308857njkig" path="res://assets/kenney_pixelplatformer/Tiles/tile_0068.png" id="1_68u03"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="3_bflj7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o64t6"]
+size = Vector2(10, 6)
+
+[node name="Spikes" type="Area2D" unique_id=1737735050]
+collision_mask = 2
+input_pickable = false
+monitorable = false
+script = ExtResource("1_6dyq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57751393]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_o64t6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2010088484]
+texture = ExtResource("1_68u03")
+
+[node name="Trackable" type="Node" parent="." unique_id=362733216]
+script = ExtResource("3_bflj7")
+object_id = "Spikes"
+object_type = 5
+metadata/_custom_type_script = "uid://631jm7xfjvbg"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

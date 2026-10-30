@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dy5e6bbwe4a3o"]
+
+[ext_resource type="Script" uid="uid://q57it7ceyyg2" path="res://Objects/SpawnPoint.gd" id="1_2sra6"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="2_8d3k7"]
+
+[node name="SpawnPoint" type="Area2D" unique_id=625287049]
+position = Vector2(912, -104)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("1_2sra6")
+
+[node name="Trackable" type="Node" parent="." unique_id=1761746303]
+script = ExtResource("2_8d3k7")
+object_id = "Spawn_Point"
+object_type = 4
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

@@ -1,0 +1,510 @@
+[gd_scene format=3 uid="uid://coo2skd38tt2d"]
+
+[ext_resource type="Script" uid="uid://c5552ppji58qs" path="res://components/camera_manager.gd" id="1_jpml2"]
+[ext_resource type="Script" uid="uid://c1c1higph8k0u" path="res://world/screen_manager.gd" id="1_q5mnp"]
+[ext_resource type="Texture2D" uid="uid://bwjl8bpmh8khg" path="res://world/assets/forest_background.png" id="2_406jw"]
+[ext_resource type="PackedScene" uid="uid://c306otuxdrvff" path="res://world/screen_1.tscn" id="3_13xq0"]
+[ext_resource type="Texture2D" uid="uid://dhpylrt1hrvlg" path="res://world/assets/wind.png" id="3_rehke"]
+[ext_resource type="Texture2D" uid="uid://cxfdc0xbsabqq" path="res://world/assets/snow.png" id="3_rgexe"]
+[ext_resource type="PackedScene" uid="uid://c1fgwyjhir5yt" path="res://world/screen_2.tscn" id="4_2t28d"]
+[ext_resource type="Texture2D" uid="uid://cw8m0ngcb4o7x" path="res://world/assets/leaves.png" id="4_gmn8d"]
+[ext_resource type="PackedScene" uid="uid://doeqxwug3v7d2" path="res://entities/jon/jon.tscn" id="4_y7i2i"]
+[ext_resource type="Script" uid="uid://bd5jy5lfsx5hv" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_056ad"]
+[ext_resource type="Shader" uid="uid://cvchvl3asanfq" path="res://world/ice_bg.gdshader" id="6_0qjtv"]
+[ext_resource type="Script" uid="uid://dcybbuwbgebc8" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_a0gtk"]
+[ext_resource type="Script" uid="uid://cgdapqm7jkuya" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_7v2h5"]
+[ext_resource type="PackedScene" uid="uid://b822mit6xaiyk" path="res://world/screen_3.tscn" id="7_s6d64"]
+[ext_resource type="PackedScene" uid="uid://b1m3ccndabecr" path="res://world/screen_4.tscn" id="8_i6mp3"]
+[ext_resource type="PackedScene" uid="uid://be670fgtey24a" path="res://world/screen_6.tscn" id="10_5pcdh"]
+[ext_resource type="PackedScene" uid="uid://cahtn5gt6l3jm" path="res://world/screen_7.tscn" id="11_ouckt"]
+[ext_resource type="PackedScene" uid="uid://c8rqvr5bn4oyl" path="res://world/screen_5.tscn" id="13_gesug"]
+[ext_resource type="PackedScene" uid="uid://bt2kmfqpny6kp" path="res://world/screen_8.tscn" id="14_y0q1y"]
+[ext_resource type="PackedScene" uid="uid://dd7r0mlw0ueri" path="res://world/screen_9.tscn" id="15_yxd4t"]
+[ext_resource type="Script" uid="uid://byb07v3j303jq" path="res://components/sound_area.gd" id="19_syp7p"]
+[ext_resource type="AudioStream" uid="uid://dlaemah5agkkl" path="res://world/assets/ambient/birds_forest.mp3" id="20_rkoww"]
+[ext_resource type="AudioStream" uid="uid://ugh50cp1n233" path="res://world/assets/ambient/wind.mp3" id="21_kxsb7"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fo5l8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 512, 1)
+gravity = Vector3(-64, 32, 0)
+scale_min = 0.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gp8vg"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 300, 1)
+gravity = Vector3(-64, 32, 0)
+scale_min = 0.5
+
+[sub_resource type="Gradient" id="Gradient_3in0v"]
+offsets = PackedFloat32Array(0, 0.489627, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f1i85"]
+gradient = SubResource("Gradient_3in0v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8lr4f"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1024, 1)
+gravity = Vector3(-128, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+color = Color(1, 1, 1, 0.6)
+color_initial_ramp = SubResource("GradientTexture1D_f1i85")
+
+[sub_resource type="Gradient" id="Gradient_1gyvr"]
+offsets = PackedFloat32Array(0, 0.489627, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_abc7c"]
+gradient = SubResource("Gradient_1gyvr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8y2qx"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 512, 1)
+gravity = Vector3(-128, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+color = Color(1, 1, 1, 0.6)
+color_initial_ramp = SubResource("GradientTexture1D_abc7c")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0dxju"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_xkx2l"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.99999, 360), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7wgw8"]
+curve = SubResource("Curve_xkx2l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qo7c0"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 768, 1)
+angle_min = -114.3
+angle_max = 250.4
+angle_curve = SubResource("CurveTexture_7wgw8")
+gravity = Vector3(-12, 4, 0)
+anim_offset_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_j3oki"]
+offsets = PackedFloat32Array(0.288382, 1)
+colors = PackedColorArray(0.136826, 0.136826, 0.136826, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nbbhh"]
+gradient = SubResource("Gradient_j3oki")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_igmo0"]
+shader = ExtResource("6_0qjtv")
+shader_parameter/strengthTex = SubResource("GradientTexture2D_nbbhh")
+
+[sub_resource type="Gradient" id="Gradient_y0gds"]
+offsets = PackedFloat32Array(0, 0.287938, 1)
+colors = PackedColorArray(0.451, 0.937, 0.91, 0, 0.451, 0.937, 0.91, 1, 0.152941, 0.537255, 0.803922, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c6fy2"]
+gradient = SubResource("Gradient_y0gds")
+width = 1
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0fc3i"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_ey5ok"]
+interpolation_mode = 2
+colors = PackedColorArray(0.239836, 0.0831982, 1.20327e-08, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k137o"]
+gradient = SubResource("Gradient_ey5ok")
+width = 16
+
+[sub_resource type="Resource" id="Resource_c1a14"]
+script = ExtResource("6_a0gtk")
+duration = 0.5
+transition = 2
+ease = 1
+
+[sub_resource type="Environment" id="Environment_c70h1"]
+background_mode = 3
+background_canvas_max_layer = 3
+tonemap_mode = 2
+glow_enabled = true
+glow_strength = 0.64
+glow_bloom = 0.11
+glow_blend_mode = 0
+adjustment_enabled = true
+adjustment_brightness = 0.8
+adjustment_saturation = 1.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mer5e"]
+size = Vector2(832, 1424)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_davgc"]
+size = Vector2(832, 2208)
+
+[node name="Tower" type="Node2D" unique_id=151264668]
+
+[node name="ScreenManager" type="Node" parent="." unique_id=2053941041]
+script = ExtResource("1_q5mnp")
+
+[node name="CameraManager" type="Node" parent="." unique_id=1057581978 node_paths=PackedStringArray("initial_camera")]
+script = ExtResource("1_jpml2")
+initial_camera = NodePath("../CamScreen1")
+
+[node name="Snow1" type="GPUParticles2D" parent="." unique_id=312648030]
+z_index = 1
+position = Vector2(624, -2096)
+amount = 128
+texture = ExtResource("3_rgexe")
+lifetime = 12.0
+preprocess = 32.0
+visibility_rect = Rect2(-32707.8, -441.784, 32716.2, 17001.1)
+process_material = SubResource("ParticleProcessMaterial_fo5l8")
+
+[node name="Snow2" type="GPUParticles2D" parent="." unique_id=1992413003]
+z_index = 1
+position = Vector2(960, -2976)
+amount = 2048
+texture = ExtResource("3_rgexe")
+lifetime = 12.0
+preprocess = 64.0
+visibility_rect = Rect2(-32707.8, -441.784, 32716.2, 17001.1)
+process_material = SubResource("ParticleProcessMaterial_gp8vg")
+
+[node name="Wind" type="GPUParticles2D" parent="." unique_id=568969718]
+z_index = 1
+position = Vector2(2160, -1984)
+amount = 128
+texture = ExtResource("3_rehke")
+lifetime = 12.0
+preprocess = 32.0
+visibility_rect = Rect2(-18904.4, -1031.88, 18913.3, 2060.84)
+trail_enabled = true
+trail_section_subdivisions = 6
+process_material = SubResource("ParticleProcessMaterial_8lr4f")
+
+[node name="Wind2" type="GPUParticles2D" parent="." unique_id=1650899432]
+z_index = 1
+position = Vector2(2112, -2624)
+amount = 128
+texture = ExtResource("3_rehke")
+lifetime = 12.0
+preprocess = 32.0
+visibility_rect = Rect2(-18904.4, -1031.88, 18913.3, 2060.84)
+trail_enabled = true
+trail_section_subdivisions = 6
+process_material = SubResource("ParticleProcessMaterial_8y2qx")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=1061837471]
+z_index = 16
+material = SubResource("CanvasItemMaterial_0dxju")
+position = Vector2(544, -320)
+amount = 256
+texture = ExtResource("4_gmn8d")
+lifetime = 32.0
+preprocess = 32.0
+visibility_rect = Rect2(-6175.34, -618.735, 6200.31, 3131.33)
+process_material = SubResource("ParticleProcessMaterial_qo7c0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=504253509]
+material = SubResource("ShaderMaterial_igmo0")
+offset_left = -432.0
+offset_top = -3088.0
+offset_right = 752.0
+offset_bottom = -1984.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_c6fy2")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=166081962]
+scroll_scale = Vector2(0, 0.14)
+scroll_offset = Vector2(0, 96)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1195373829]
+z_index = -2
+position = Vector2(160, -178)
+texture = ExtResource("2_406jw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D" unique_id=573236378]
+z_index = -2
+position = Vector2(160, -706)
+rotation = 3.14159
+texture = ExtResource("2_406jw")
+
+[node name="Node2D" type="Node2D" parent="Parallax2D" unique_id=1249691573]
+z_index = -1
+position = Vector2(0, -48)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D/Node2D" unique_id=1383052358]
+material = SubResource("CanvasItemMaterial_0fc3i")
+offset_left = -52.0
+offset_top = 250.0
+offset_right = 700.0
+offset_bottom = 832.0
+rotation = -1.73864
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_k137o")
+
+[node name="ColorRect" type="ColorRect" parent="Parallax2D/Node2D" unique_id=61456259]
+offset_top = -528.0
+offset_right = 608.0
+offset_bottom = 192.0
+mouse_filter = 2
+color = Color(0.99, 0.969375, 0.7425, 0.129412)
+
+[node name="Snow1" type="GPUParticles2D" parent="Parallax2D/Node2D" unique_id=1947044259]
+z_index = -1
+position = Vector2(624, -2096)
+amount = 512
+texture = ExtResource("3_rgexe")
+lifetime = 32.0
+preprocess = 32.0
+visibility_rect = Rect2(-32707.8, -441.784, 32716.2, 17001.1)
+process_material = SubResource("ParticleProcessMaterial_fo5l8")
+
+[node name="Screen1" parent="." unique_id=37399355 node_paths=PackedStringArray("next_screen") instance=ExtResource("3_13xq0")]
+initial_screen = true
+bgm_track = "the_night_before_battle.mp3"
+next_screen = NodePath("../Screen2")
+
+[node name="Screen2" parent="." unique_id=1205349583 node_paths=PackedStringArray("next_screen", "previous_screen") instance=ExtResource("4_2t28d")]
+z_index = 1
+position = Vector2(0, -288)
+next_screen = NodePath("../Screen3")
+previous_screen = NodePath("../Screen1")
+
+[node name="Screen3" parent="." unique_id=1472046058 node_paths=PackedStringArray("next_screen", "previous_screen") instance=ExtResource("7_s6d64")]
+position = Vector2(0, -576)
+next_screen = NodePath("../Screen4")
+previous_screen = NodePath("../Screen2")
+
+[node name="Screen4" parent="." unique_id=232191315 node_paths=PackedStringArray("next_screen", "previous_screen") instance=ExtResource("8_i6mp3")]
+position = Vector2(0, -880)
+next_screen = NodePath("../Screen5")
+previous_screen = NodePath("../Screen3")
+
+[node name="Screen5" parent="." unique_id=1506393558 node_paths=PackedStringArray("next_screen", "previous_screen") instance=ExtResource("13_gesug")]
+position = Vector2(0, -1152)
+next_screen = NodePath("../Screen6")
+previous_screen = NodePath("../Screen4")
+
+[node name="Screen6" parent="." unique_id=1082857165 node_paths=PackedStringArray("next_screen", "previous_screen") instance=ExtResource("10_5pcdh")]
+position = Vector2(0, -1328)
+bgm_track = "misty_mountains.mp3"
+next_screen = NodePath("../Screen7")
+previous_screen = NodePath("../Screen5")
+
+[node name="Screen7" parent="." unique_id=1383701845 node_paths=PackedStringArray("next_screen", "previous_screen") instance=ExtResource("11_ouckt")]
+position = Vector2(0, -1664)
+next_screen = NodePath("../Screen8")
+previous_screen = NodePath("../Screen6")
+
+[node name="Screen8" parent="." unique_id=37597785 node_paths=PackedStringArray("next_screen", "previous_screen") instance=ExtResource("14_y0q1y")]
+position = Vector2(0, -1984)
+next_screen = NodePath("../Screen9")
+previous_screen = NodePath("../Screen7")
+
+[node name="Screen9" parent="." unique_id=1720922087 node_paths=PackedStringArray("previous_screen") instance=ExtResource("15_yxd4t")]
+position = Vector2(0, -1984)
+bgm_track = "a_new_dawn.mp3"
+previous_screen = NodePath("../Screen8")
+
+[node name="Jon" parent="." unique_id=807480524 instance=ExtResource("4_y7i2i")]
+position = Vector2(16, 80)
+
+[node name="CamScreen1" type="Node2D" parent="." unique_id=832250294 node_paths=PackedStringArray("follow_target")]
+position = Vector2(160, 80)
+script = ExtResource("5_056ad")
+follow_mode = 5
+follow_target = NodePath("../Jon")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_c1a14")
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_left = 0
+limit_top = -272
+limit_right = 320
+limit_bottom = 180
+
+[node name="CamScreen2" type="Node2D" parent="." unique_id=2142400337 node_paths=PackedStringArray("follow_target")]
+position = Vector2(32, -346)
+script = ExtResource("5_056ad")
+follow_mode = 2
+follow_target = NodePath("../Jon")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_c1a14")
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_left = -128
+limit_top = -560
+limit_right = 320
+limit_bottom = -256
+
+[node name="CamScreen3" type="Node2D" parent="." unique_id=766293727 node_paths=PackedStringArray("follow_target")]
+position = Vector2(32, -634)
+script = ExtResource("5_056ad")
+follow_mode = 2
+follow_target = NodePath("../Jon")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_c1a14")
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_left = -128
+limit_top = -880
+limit_right = 320
+limit_bottom = -544
+
+[node name="CamScreen4" type="Node2D" parent="." unique_id=942118889 node_paths=PackedStringArray("follow_target")]
+position = Vector2(160, -954)
+script = ExtResource("5_056ad")
+follow_mode = 2
+follow_target = NodePath("../Jon")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_c1a14")
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_left = 0
+limit_top = -1152
+limit_right = 320
+limit_bottom = -864
+
+[node name="CamScreen5" type="Node2D" parent="." unique_id=234610032 node_paths=PackedStringArray("follow_target")]
+position = Vector2(160, -1226)
+script = ExtResource("5_056ad")
+follow_mode = 2
+follow_target = NodePath("../Jon")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_c1a14")
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_left = 0
+limit_top = -1332
+limit_right = 320
+limit_bottom = -1136
+
+[node name="CamScreen6" type="Node2D" parent="." unique_id=1514524016 node_paths=PackedStringArray("follow_target")]
+position = Vector2(32, -1386)
+script = ExtResource("5_056ad")
+follow_mode = 2
+follow_target = NodePath("../Jon")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_c1a14")
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_left = -128
+limit_top = -1648
+limit_right = 192
+limit_bottom = -1296
+
+[node name="CamScreen7" type="Node2D" parent="." unique_id=1944693952 node_paths=PackedStringArray("follow_target")]
+position = Vector2(64, -1722)
+script = ExtResource("5_056ad")
+follow_mode = 2
+follow_target = NodePath("../Jon")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_c1a14")
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_left = -96
+limit_top = -1968
+limit_right = 288
+limit_bottom = -1632
+
+[node name="CamScreen8" type="Node2D" parent="." unique_id=1782866707 node_paths=PackedStringArray("follow_target")]
+position = Vector2(128, -2042)
+script = ExtResource("5_056ad")
+follow_mode = 2
+follow_target = NodePath("../Jon")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_c1a14")
+follow_damping = true
+dead_zone_width = 0.3
+dead_zone_height = 0.3
+draw_limits = true
+limit_left = -32
+limit_top = -2240
+limit_right = 368
+limit_bottom = -1952
+
+[node name="CamScreen9" type="Node2D" parent="." unique_id=428448418 node_paths=PackedStringArray("follow_target")]
+position = Vector2(96, -2250)
+script = ExtResource("5_056ad")
+follow_mode = 2
+follow_target = NodePath("../Jon")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_c1a14")
+follow_damping = true
+dead_zone_width = 0.3
+dead_zone_height = 0.3
+draw_limits = true
+limit_left = -64
+limit_top = -28900
+limit_right = 624
+limit_bottom = -2160
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=942074426]
+physics_interpolation_mode = 1
+position = Vector2(160, 80)
+limit_left = 0
+limit_top = -272
+limit_right = 320
+limit_bottom = 180
+position_smoothing_speed = 32.0
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=307957809]
+script = ExtResource("7_7v2h5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=396693170]
+environment = SubResource("Environment_c70h1")
+
+[node name="ForestSoundArea" type="Area2D" parent="." unique_id=2067897345]
+collision_layer = 0
+script = ExtResource("19_syp7p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForestSoundArea" unique_id=1787072807]
+position = Vector2(160, -408)
+shape = SubResource("RectangleShape2D_mer5e")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ForestSoundArea" unique_id=113627120]
+stream = ExtResource("20_rkoww")
+autoplay = true
+bus = &"Ambient"
+
+[node name="WindSoundArea" type="Area2D" parent="." unique_id=1237416629]
+collision_layer = 0
+script = ExtResource("19_syp7p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindSoundArea" unique_id=727890909]
+position = Vector2(160, -2224)
+shape = SubResource("RectangleShape2D_davgc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WindSoundArea" unique_id=514817768]
+stream = ExtResource("21_kxsb7")
+bus = &"Ambient"

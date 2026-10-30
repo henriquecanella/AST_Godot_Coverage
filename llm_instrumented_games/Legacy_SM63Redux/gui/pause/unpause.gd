@@ -1,0 +1,22 @@
+extends Control
+
+@onready var parent = $".."
+
+func _init():
+	if has_node("Trackable"):
+		$Trackable.mark_interacted()
+	visible = false
+
+
+func _process(_delta):
+	visible = Singleton.touch_control
+
+
+func _on_Unpause_button_up():
+	if !Singleton.meta_pauses["feedback"] and parent.modulate.a >= 1:
+		Input.action_release("pause")
+
+
+func _on_Unpause_button_down():
+	if !Singleton.meta_pauses["feedback"] and parent.modulate.a >= 1:
+		Input.action_press("pause")

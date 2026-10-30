@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://cp7kakv4lupju"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_xvpad"]
+[ext_resource type="PackedScene" uid="uid://bfulh2dvrrw3" path="res://objects/ui/menu/menu_item_keybind.tscn" id="2_m4pw5"]
+[ext_resource type="PackedScene" uid="uid://bjgcuauwpy41d" path="res://objects/ui/menu/menu_item_title_bar.tscn" id="2_wny77"]
+[ext_resource type="PackedScene" uid="uid://mkrn1dowrter" path="res://objects/ui/menu/menu_item_gap.tscn" id="5_ofvkf"]
+[ext_resource type="PackedScene" uid="uid://ctg8603hwn317" path="res://objects/ui/menu/menu_item_selector.tscn" id="5_t863r"]
+[ext_resource type="PackedScene" uid="uid://hc8gvdg03bpo" path="res://objects/ui/menu/menu_item_button.tscn" id="6_welid"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="Controls" type="VBoxContainer"]
+texture_filter = 1
+offset_right = 384.0
+offset_bottom = 594.0
+theme_override_constants/separation = 0
+script = ExtResource("1_xvpad")
+
+[node name="Title" parent="." instance=ExtResource("2_wny77")]
+layout_mode = 2
+title = "Controls"
+
+[node name="Up" parent="." instance=ExtResource("2_m4pw5")]
+layout_mode = 2
+title = "Up"
+action_name = "up"
+
+[node name="Down" parent="." instance=ExtResource("2_m4pw5")]
+layout_mode = 2
+title = "Down"
+action_name = "down"
+
+[node name="Left" parent="." instance=ExtResource("2_m4pw5")]
+layout_mode = 2
+title = "Left"
+action_name = "left"
+
+[node name="Right" parent="." instance=ExtResource("2_m4pw5")]
+layout_mode = 2
+title = "Right"
+action_name = "right"
+
+[node name="Interact" parent="." instance=ExtResource("2_m4pw5")]
+layout_mode = 2
+title = "Interact"
+action_name = "interact"
+
+[node name="Back2" parent="." instance=ExtResource("2_m4pw5")]
+layout_mode = 2
+title = "Back"
+action_name = "shoot"
+
+[node name="Pause" parent="." instance=ExtResource("2_m4pw5")]
+layout_mode = 2
+title = "Pause"
+action_name = "pause"
+
+[node name="Gap1" parent="." instance=ExtResource("5_ofvkf")]
+layout_mode = 2
+
+[node name="MenuItem_Selector" parent="." instance=ExtResource("5_t863r")]
+layout_mode = 2
+id = "controller_type"
+title = "Gamepad Type"
+values = Array[String](["Xbox", "Nintendo", "PlayStation"])
+
+[node name="Gap2" parent="." instance=ExtResource("5_ofvkf")]
+layout_mode = 2
+
+[node name="Back" parent="." instance=ExtResource("6_welid")]
+layout_mode = 2
+id = "back"
+title = "Back"
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "controls"
+object_type = 4

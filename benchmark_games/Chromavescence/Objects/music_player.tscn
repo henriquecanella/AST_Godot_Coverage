@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d4it2xqjlhd6j"]
+
+[ext_resource type="Script" uid="uid://cfc7d22ccuawc" path="res://Objects/MusicPlayer.gd" id="1_m7fd8"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="2_3egvf"]
+
+[node name="MusicPlayer" type="Area2D" unique_id=1004360529]
+position = Vector2(-8, 208)
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("1_m7fd8")
+
+[node name="Trackable" type="Node" parent="." unique_id=1637672622]
+script = ExtResource("2_3egvf")
+object_id = "Music_Player"
+object_type = 4
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

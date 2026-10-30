@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://clm2nclhrbmmm"]
+
+[ext_resource type="Texture2D" uid="uid://4ll47lsk5crf" path="res://assets/sprites/demon_jr.png" id="1_h85ip"]
+[ext_resource type="Script" uid="uid://blhmk4oulqmr2" path="res://scripts/enemies/follower.gd" id="1_o1uk5"]
+[ext_resource type="PackedScene" uid="uid://c85r26su1qgfe" path="res://scenes/enemies/killzone.tscn" id="2_q5brd"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="4_b2b3f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1re6r"]
+atlas = ExtResource("1_h85ip")
+region = Rect2(197, 2, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1bp3"]
+atlas = ExtResource("1_h85ip")
+region = Rect2(2, 2, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnlrt"]
+atlas = ExtResource("1_h85ip")
+region = Rect2(67, 2, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c66xv"]
+atlas = ExtResource("1_h85ip")
+region = Rect2(132, 2, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oef1q"]
+atlas = ExtResource("1_h85ip")
+region = Rect2(262, 2, 62, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xnqcg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1re6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1bp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnlrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c66xv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oef1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1re6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oef1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1re6r")
+}],
+"loop": 0,
+"name": &"hit",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t75qw"]
+size = Vector2(10, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bi1qh"]
+radius = 6.08276
+
+[node name="DemonJr" type="CharacterBody2D" unique_id=2135528788]
+collision_layer = 8
+script = ExtResource("1_o1uk5")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1398146741]
+sprite_frames = SubResource("SpriteFrames_xnqcg")
+autoplay = "default"
+
+[node name="RayCast1" type="RayCast2D" parent="." unique_id=1795234044]
+target_position = Vector2(7, 0)
+
+[node name="RayCast2" type="RayCast2D" parent="." unique_id=953627223]
+target_position = Vector2(-8, 0)
+
+[node name="Jumpzone" type="Area2D" parent="." unique_id=1914219301]
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jumpzone" unique_id=735642144]
+position = Vector2(-1, -10)
+shape = SubResource("RectangleShape2D_t75qw")
+debug_color = Color(0, 1, 0, 0.196078)
+
+[node name="Killzone" parent="." unique_id=1127006886 instance=ExtResource("2_q5brd")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=996971014]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_bi1qh")
+debug_color = Color(1, 0, 0, 0.196078)
+
+[node name="Trackable" type="Node" parent="." unique_id=33217164]
+script = ExtResource("4_b2b3f")
+object_id = "DemonJr_01"
+object_type = 1
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

@@ -1,0 +1,358 @@
+[gd_scene load_steps=21 format=3 uid="uid://d8flqb4ktbdj"]
+
+[ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_15vqh"]
+[ext_resource type="VideoStream" path="res://video/title.ogv" id="2_kecq5"]
+[ext_resource type="Texture2D" uid="uid://bbkrd4a4vf8jq" path="res://sprites/logo.png" id="2_te855"]
+[ext_resource type="Texture2D" uid="uid://cki0solhdng5r" path="res://sprites/gradient.png" id="3_s1htk"]
+[ext_resource type="Texture2D" uid="uid://6d8qhxgl0vum" path="res://sprites/and_the_rest.png" id="5_oi1k3"]
+[ext_resource type="PackedScene" uid="uid://cowuxseai4hbv" path="res://objects/ui/menus/title.tscn" id="7_eycgn"]
+[ext_resource type="Texture2D" uid="uid://obrdj1j4ch3e" path="res://sprites/jg.png" id="7_p4cu5"]
+[ext_resource type="PackedScene" uid="uid://3f8sior7em7a" path="res://objects/ui/menus/settings.tscn" id="8_rwlwe"]
+[ext_resource type="Texture2D" uid="uid://c2d2eiovxpw0o" path="res://sprites/kyveri.png" id="8_wf3n4"]
+[ext_resource type="PackedScene" uid="uid://gwm7tm1xnl5a" path="res://objects/ui/menus/graphics.tscn" id="9_u1ega"]
+[ext_resource type="PackedScene" uid="uid://dlkta45kvdfku" path="res://objects/ui/menus/audio.tscn" id="10_6cc7h"]
+[ext_resource type="AudioStream" uid="uid://bc01o3e75dgba" path="res://audio/music/title.ogg" id="10_syov0"]
+[ext_resource type="PackedScene" uid="uid://cp7kakv4lupju" path="res://objects/ui/menus/controls.tscn" id="11_hypax"]
+[ext_resource type="PackedScene" uid="uid://7x1hdqybj404" path="res://objects/ui/credits.tscn" id="12_t04ux"]
+[ext_resource type="PackedScene" uid="uid://cxucawp22wfyt" path="res://objects/ui/prompt.tscn" id="14_5k0o0"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qocyx"]
+blend_mode = 2
+
+[sub_resource type="Animation" id="Animation_quns4"]
+resource_name = "fade_in"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.2, 7, 9, 9.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VideoStreamPlayer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.5, 7.5, 10),
+"transitions": PackedFloat32Array(1, -2, -2, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.0980392, 0.0980392, 0.0980392, 1), Color(0.0980392, 0.0980392, 0.0980392, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("JG:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Kyveri:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 2, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AndTheRest:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3, 3.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Audio_BGM:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Menus/Title:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ruw4g"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VideoStreamPlayer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio_BGM:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -40.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menus/Title:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Prompts:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlgrs"]
+_data = {
+"fade_in": SubResource("Animation_quns4"),
+"fade_out": SubResource("Animation_ruw4g")
+}
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_15vqh")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_kecq5")
+autoplay = true
+expand = true
+
+[node name="Gradient" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+material = SubResource("CanvasItemMaterial_qocyx")
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 720.0
+texture = ExtResource("3_s1htk")
+
+[node name="JG" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_p4cu5")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Kyveri" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.806
+offset_top = -180.0
+offset_right = 185.806
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_wf3n4")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="AndTheRest" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_oi1k3")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Logo" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -128.0
+offset_right = 400.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 128)
+texture = ExtResource("2_te855")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Menus" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = -832.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" parent="Menus" instance=ExtResource("7_eycgn")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Settings" parent="Menus" instance=ExtResource("8_rwlwe")]
+visible = false
+layout_mode = 2
+
+[node name="Graphics" parent="Menus" instance=ExtResource("9_u1ega")]
+visible = false
+layout_mode = 2
+
+[node name="Audio" parent="Menus" instance=ExtResource("10_6cc7h")]
+visible = false
+layout_mode = 2
+
+[node name="Controls" parent="Menus" instance=ExtResource("11_hypax")]
+visible = false
+layout_mode = 2
+
+[node name="Credits" parent="." instance=ExtResource("12_t04ux")]
+visible = false
+layout_mode = 1
+offset_left = 320.0
+offset_top = 136.0
+offset_right = -320.0
+offset_bottom = -136.0
+
+[node name="Prompts" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 664.0
+offset_right = 384.0
+offset_bottom = 704.0
+theme_override_constants/separation = 16
+
+[node name="Prompt_Select" parent="Prompts" instance=ExtResource("14_5k0o0")]
+visible = false
+layout_mode = 2
+title = "Select"
+action_name = "interact"
+
+[node name="Prompt_Back" parent="Prompts" instance=ExtResource("14_5k0o0")]
+visible = false
+layout_mode = 2
+title = "Back"
+action_name = "shoot"
+
+[node name="Audio_BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_syov0")
+bus = &"bgm"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nlgrs")
+}
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "title_screen"
+object_type = 4
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="button_pressed" from="Menus/Title" to="." method="_on_title_button_pressed"]
+[connection signal="button_pressed" from="Menus/Settings" to="." method="_on_settings_button_pressed"]
+[connection signal="closed" from="Menus/Settings" to="." method="_on_settings_closed"]
+[connection signal="closed" from="Menus/Graphics" to="." method="_on_graphics_closed"]
+[connection signal="closed" from="Menus/Audio" to="." method="_on_audio_closed"]
+[connection signal="closed" from="Menus/Controls" to="." method="_on_controls_closed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

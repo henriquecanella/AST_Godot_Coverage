@@ -1,0 +1,319 @@
+[gd_scene format=3 uid="uid://d1jg1mi7h4hle"]
+
+[ext_resource type="Script" uid="uid://dpya21uebpcuo" path="res://entities/piton_gem/piton_gem.gd" id="1_hj20u"]
+[ext_resource type="Texture2D" uid="uid://bv8d4g1psykvk" path="res://entities/piton_gem/piton_gem.png" id="1_irqs4"]
+[ext_resource type="Script" uid="uid://b55ugx4vqo2qm" path="res://components/collectible.gd" id="3_t6qhr"]
+[ext_resource type="AudioStream" uid="uid://dq1dh1qk8jurm" path="res://entities/jon/assets/sounds/gem_pickup.wav" id="4_0keb1"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="5_y4fu1"]
+
+[sub_resource type="Animation" id="Animation_s5gyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_l3fs7"]
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 10, 11, 12, 13, 14, 15]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.7),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 0.8), Vector2(0.8, 1.5), Vector2(1.1, 0.9), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dha2n"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_whp5b"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s81tc"]
+resource_name = "pass_through"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(-0.5, -0.5, -0.5, -0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dovah"]
+_data = {
+&"RESET": SubResource("Animation_s5gyr"),
+&"collect": SubResource("Animation_l3fs7"),
+&"default": SubResource("Animation_dha2n"),
+&"idle": SubResource("Animation_whp5b"),
+&"pass_through": SubResource("Animation_s81tc")
+}
+
+[sub_resource type="Gradient" id="Gradient_x2obi"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.121857, 0.65764)
+colors = PackedColorArray(1, 1, 0.921569, 1, 0.4, 1, 0.890196, 1, 0.4, 1, 0.89, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_quk4m"]
+gradient = SubResource("Gradient_x2obi")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_klbom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mkc1a"]
+resource_name = "bob"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, -2), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 2), Vector2(0, 2), Vector2(0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xm5d3"]
+_data = {
+&"RESET": SubResource("Animation_klbom"),
+&"bob": SubResource("Animation_mkc1a")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxngd"]
+size = Vector2(16, 16)
+
+[node name="PitonGem" type="Area2D" unique_id=366711128 node_paths=PackedStringArray("sprite_anim", "collectible")]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_hj20u")
+sprite_anim = NodePath("Sprite2D/AnimationPlayer")
+collectible = NodePath("Collectible")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=17013614]
+texture_filter = 1
+texture = ExtResource("1_irqs4")
+centered = false
+hframes = 4
+vframes = 4
+frame = 15
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Sprite2D/AnimationPlayer",
+"slice": "",
+"source": "res://entities/piton_gem/piton_gem.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false
+}
+metadata/_aseprite_wizard_source_file_hash_ = "b49f3737d9b682d346e39034508efc65"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=1665797241]
+libraries/ = SubResource("AnimationLibrary_dovah")
+autoplay = &"idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1744382770]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(8, 8)
+energy = 0.25
+texture = SubResource("GradientTexture2D_quk4m")
+texture_scale = 4.0
+
+[node name="Bob" type="AnimationPlayer" parent="." unique_id=312859340]
+libraries/ = SubResource("AnimationLibrary_xm5d3")
+autoplay = &"bob"
+speed_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=775053478]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_hxngd")
+debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="Collectible" type="Node" parent="." unique_id=139190077]
+script = ExtResource("3_t6qhr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=429877303]
+stream = ExtResource("4_0keb1")
+
+[node name="Trackable" type="Node" parent="." unique_id=1606610178]
+script = ExtResource("5_y4fu1")
+object_id = "Piton_Gem"
+object_type = 2
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

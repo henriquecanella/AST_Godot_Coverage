@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://16ua5f1b5l23"]
+
+[ext_resource type="Shader" uid="uid://vfcsbteufggy" path="res://Shaders/world.gdshader" id="1_tupmh"]
+[ext_resource type="Script" uid="uid://b6rx5qb6v8tii" path="res://Objects/world.gd" id="2_obmja"]
+[ext_resource type="TileSet" uid="uid://c3sgqp562ebfr" path="res://Resources/worldc_tileset.tres" id="2_pgk0j"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="4_rgia4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_msbjd"]
+shader = ExtResource("1_tupmh")
+shader_parameter/enabled = true
+
+[node name="World" type="TileMap" unique_id=17168913]
+material = SubResource("ShaderMaterial_msbjd")
+tile_set = ExtResource("2_pgk0j")
+format = 2
+script = ExtResource("2_obmja")
+
+[node name="Trackable" type="Node" parent="." unique_id=58959881]
+script = ExtResource("4_rgia4")
+object_id = "World"
+object_type = 4
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

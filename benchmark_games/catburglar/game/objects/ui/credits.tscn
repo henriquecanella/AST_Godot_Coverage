@@ -1,0 +1,191 @@
+[gd_scene load_steps=3 format=3 uid="uid://7x1hdqybj404"]
+
+
+[ext_resource type="FontFile" uid="uid://dobcyrrdj03ub" path="res://fonts/CaviarDreams.ttf" id="1_tf2yv"]
+[ext_resource type="FontFile" uid="uid://c4edf8hd56tf2" path="res://fonts/CaviarDreams_Bold.ttf" id="2_dvqud"]
+[ext_resource type="Script" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -272.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 32
+
+[node name="Grid" type="GridContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+columns = 2
+
+[node name="Role1A" type="Label" parent="VBox/Grid"]
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_tf2yv")
+theme_override_font_sizes/font_size = 32
+text = "Game by"
+horizontal_alignment = 2
+
+[node name="Role1B" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_dvqud")
+theme_override_font_sizes/font_size = 32
+text = "John Gabriel"
+
+[node name="Role2A" type="Label" parent="VBox/Grid"]
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_tf2yv")
+theme_override_font_sizes/font_size = 32
+text = "Pixel art by"
+horizontal_alignment = 2
+
+[node name="Role2B" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_dvqud")
+theme_override_font_sizes/font_size = 32
+text = "Jerico Landry"
+
+[node name="Role3A" type="Label" parent="VBox/Grid"]
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_tf2yv")
+theme_override_font_sizes/font_size = 32
+text = "Digital art by"
+horizontal_alignment = 2
+
+[node name="Role3B" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_dvqud")
+theme_override_font_sizes/font_size = 32
+text = "Kyveri"
+
+[node name="Role4A" type="Label" parent="VBox/Grid"]
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_tf2yv")
+theme_override_font_sizes/font_size = 32
+text = "Music by"
+horizontal_alignment = 2
+
+[node name="Role4B" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_dvqud")
+theme_override_font_sizes/font_size = 32
+text = "Sfeldman"
+
+[node name="VBox" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Role5A" type="Label" parent="VBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_tf2yv")
+theme_override_font_sizes/font_size = 32
+text = "Featuring "
+horizontal_alignment = 1
+
+[node name="Role5B" type="Label" parent="VBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_dvqud")
+theme_override_font_sizes/font_size = 32
+text = "Carrie Drovdlic"
+horizontal_alignment = 1
+
+[node name="Role5C" type="Label" parent="VBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_tf2yv")
+theme_override_font_sizes/font_size = 32
+text = "as the voice of Cynth"
+horizontal_alignment = 1
+
+[node name="Grid2" type="GridContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+columns = 2
+
+[node name="Role1A" type="Label" parent="VBox/Grid2"]
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_tf2yv")
+theme_override_font_sizes/font_size = 32
+text = "Made with"
+horizontal_alignment = 2
+
+[node name="Role1B" type="Label" parent="VBox/Grid2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_dvqud")
+theme_override_font_sizes/font_size = 32
+text = "Godot Engine v4.2.2"
+
+[node name="Role2A" type="Label" parent="VBox/Grid2"]
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_tf2yv")
+theme_override_font_sizes/font_size = 32
+text = "Originally made for"
+horizontal_alignment = 2
+
+[node name="Role2B" type="Label" parent="VBox/Grid2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_dvqud")
+theme_override_font_sizes/font_size = 32
+text = "Godot Wild Jam #63"
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "credits"
+object_type = 6

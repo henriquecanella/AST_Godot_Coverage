@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpyl3x88e0wx0"]
+
+[ext_resource type="Script" path="res://components/gui/ui_layer.gd" id="1_qhmai"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="2_track"]
+
+[node name="UILayer" type="CanvasLayer"]
+script = ExtResource("1_qhmai")
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("2_track")
+object_id = "ui_layer"
+object_type = 4

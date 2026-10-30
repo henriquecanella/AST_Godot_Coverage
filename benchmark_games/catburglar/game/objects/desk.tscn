@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://baxdlnnmog5g7"]
+
+
+[ext_resource type="Script" path="res://objects/desk.gd" id="1_f78oy"]
+[ext_resource type="Texture2D" uid="uid://cghkheaklv3ll" path="res://sprites/desk.png" id="1_h8ww6"]
+[ext_resource type="Script" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8smty"]
+size = Vector2(16, 16)
+
+[node name="Desk" type="Area2D" groups=["obscurer"]]
+z_index = 5
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_f78oy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("1_h8ww6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_8smty")
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "desk"
+object_type = 4

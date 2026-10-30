@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf1drr1n10l11"]
+
+[ext_resource type="Script" path="res://objects/camera.gd" id="1_datkn"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="Camera" type="Camera2D" groups=["game_camera"]]
+position = Vector2(104, 80)
+zoom = Vector2(3, 3)
+script = ExtResource("1_datkn")
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "camera"
+object_type = 4

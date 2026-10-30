@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://pvkb4jeaxn3r"]
+
+[ext_resource type="Script" uid="uid://78j4qvhwwwj5" path="res://Objects/CameraZoom.gd" id="1_chomf"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="2_g5owp"]
+
+[node name="CameraZoom" type="Area2D" unique_id=782215737]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("1_chomf")
+
+[node name="Trackable" type="Node" parent="." unique_id=1930652403]
+script = ExtResource("2_g5owp")
+object_id = "Camera_Zoom"
+object_type = 4
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

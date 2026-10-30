@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxucawp22wfyt"]
+
+
+[ext_resource type="Texture2D" uid="uid://dvem4udg77q8t" path="res://sprites/ui/controller_icons.png" id="1_5sobn"]
+[ext_resource type="Script" path="res://objects/ui/prompt.gd" id="1_u8juv"]
+[ext_resource type="FontFile" uid="uid://c4edf8hd56tf2" path="res://fonts/CaviarDreams_Bold.ttf" id="2_rjacc"]
+[ext_resource type="FontFile" uid="uid://dobcyrrdj03ub" path="res://fonts/CaviarDreams.ttf" id="3_7y7bt"]
+[ext_resource type="Script" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12jxf"]
+atlas = ExtResource("1_5sobn")
+region = Rect2(0, 0, 64, 64)
+
+[node name="Prompt" type="HBoxContainer" groups=["keybind_or_prompt"]]
+offset_right = 135.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+script = ExtResource("1_u8juv")
+
+[node name="Texture_Button" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_12jxf")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label_Key" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.701961, 0.72549, 0.819608, 1)
+theme_override_colors/font_shadow_color = Color(0.2, 0.223529, 0.254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_rjacc")
+theme_override_font_sizes/font_size = 24
+text = "X"
+
+[node name="Label_Action" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.878431, 0.917647, 1)
+theme_override_colors/font_shadow_color = Color(0.2, 0.223529, 0.254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("3_7y7bt")
+theme_override_font_sizes/font_size = 24
+text = "Interact"
+horizontal_alignment = 2
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "prompt"
+object_type = 6

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://de505ot6unmrs"]
+
+[ext_resource type="Texture2D" uid="uid://4fjwcu78jhnr" path="res://entities/rope/assets/rope_tile.png" id="1_aef6g"]
+[ext_resource type="Script" uid="uid://cr7jbnj53roe1" path="res://entities/rope/rope.gd" id="2_0btvy"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="3_2ln33"]
+
+[node name="Rope" type="Sprite2D" unique_id=995220896]
+texture_repeat = 2
+position = Vector2(8, 0)
+texture = ExtResource("1_aef6g")
+centered = false
+offset = Vector2(-8, 0)
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("2_0btvy")
+
+[node name="Trackable" type="Node" parent="." unique_id=1630147603]
+script = ExtResource("3_2ln33")
+object_id = "Player_Rope"
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

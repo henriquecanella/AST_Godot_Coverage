@@ -1,0 +1,34 @@
+extends Area2D
+
+@onready var sprite = $AnimatedSprite2D
+
+var crossed_item = false
+var mario = null
+var timer = 30
+
+
+func _ready():
+	if has_node("Trackable"):
+		$Trackable.setup_coverage()
+	sprite.play()
+
+
+func _physics_process(_delta):
+	if crossed_item:
+		if mario.hp < 8:
+			if timer >= 30:
+				mario.receive_health(1)
+				timer = 0
+			else:
+				timer += 1
+		else:
+			crossed_item = false
+			sprite.set_speed_scale(1.0)
+			timer = 30
+			mario = null
+
+
+func _on_Heart_body_entered(body):
+	crossed_item = true
+	mario = body
+	sprite.set_speed_scale(5.0)

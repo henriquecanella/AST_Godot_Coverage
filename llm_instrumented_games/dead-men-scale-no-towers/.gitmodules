@@ -1,0 +1,12 @@
+[submodule "share/wisp"]
+	path = share/wisp
+	url = https://github.com/wyvernbw/wisp
+[submodule "share/maybe"]
+	path = share/maybe
+	url = git@github.com:wyvernbw/gd-maybe.git
+[submodule "share/tracer"]
+	path = share/tracer
+	url = git@github.com:wyvernbw/tracer.gd.git
+[submodule "share/inkgd"]
+	path = share/inkgd
+	url = git@github.com:ephread/inkgd.git

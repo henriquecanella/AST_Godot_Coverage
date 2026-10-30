@@ -1,0 +1,15 @@
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://b6h3cpkoyhj3n"]
+
+[ext_resource type="Texture2D" uid="uid://8tn25nmv4gc7" path="res://tilesets/black.png" id="1_gjhd4"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l1cel"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f32q8"]
+texture = ExtResource("1_gjhd4")
+0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_l1cel")
+
+[resource]
+occlusion_layer_0/light_mask = 1
+sources/0 = SubResource("TileSetAtlasSource_f32q8")

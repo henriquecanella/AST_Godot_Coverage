@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://yc5fsy3tmtre"]
+
+[ext_resource type="Script" path="res://objects/door.gd" id="1_3k3i1"]
+[ext_resource type="Texture2D" uid="uid://cio70285e4frg" path="res://sprites/door_frame.png" id="2_iai8s"]
+[ext_resource type="Texture2D" uid="uid://brrvtkacdstyk" path="res://sprites/door.png" id="3_bu6xf"]
+[ext_resource type="Shader" path="res://shaders/ants.gdshader" id="4_groxh"]
+[ext_resource type="Texture2D" uid="uid://bfxeoh41se3t7" path="res://sprites/door_frame_outline.png" id="5_rv0hv"]
+[ext_resource type="AudioStream" uid="uid://djlv6skma5pmw" path="res://audio/sfx/door_open.ogg" id="6_ikj3t"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_chdks"]
+shader = ExtResource("4_groxh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxvj4"]
+size = Vector2(16, 40)
+
+[node name="Door" type="Area2D" groups=["door", "interactable"]]
+z_index = -10
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_3k3i1")
+
+[node name="Sprite2D_Frame" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -24)
+texture = ExtResource("2_iai8s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -24)
+texture = ExtResource("3_bu6xf")
+hframes = 7
+
+[node name="Sprite2D_Outline" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+light_mask = 0
+texture_filter = 1
+material = SubResource("ShaderMaterial_chdks")
+position = Vector2(0, -24)
+texture = ExtResource("5_rv0hv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_kxvj4")
+
+[node name="Audio_Open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ikj3t")
+
+[node name="Timer_CloseDoor" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "door"
+object_type = 4
+
+[connection signal="timeout" from="Timer_CloseDoor" to="." method="_on_timer_close_door_timeout"]

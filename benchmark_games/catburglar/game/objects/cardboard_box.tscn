@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bya8xlpvkbtqh"]
+
+
+[ext_resource type="Texture2D" uid="uid://dbwl3us18m2it" path="res://sprites/box.png" id="1_odalu"]
+[ext_resource type="Script" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gp4q"]
+size = Vector2(20, 16)
+
+[node name="CardboardBox" type="Area2D" groups=["interactable"]]
+z_index = -2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_odalu")
+offset = Vector2(0, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_4gp4q")
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "cardboard_box"
+object_type = 6

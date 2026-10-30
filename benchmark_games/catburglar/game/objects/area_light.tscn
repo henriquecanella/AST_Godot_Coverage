@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cajy37ndv6bo6"]
+
+
+[ext_resource type="Texture2D" uid="uid://b2gx76lxj8ske" path="res://sprites/lights/wall1.png" id="1_gcaoe"]
+[ext_resource type="Script" path="res://objects/area_light.gd" id="2_sqbbx"]
+[ext_resource type="Script" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0wb0"]
+size = Vector2(24, 48)
+
+[node name="AreaLight" type="PointLight2D" groups=["illuminator"]]
+color = Color(1, 0.941176, 0.752941, 1)
+shadow_enabled = true
+texture = ExtResource("1_gcaoe")
+offset = Vector2(0, 24)
+script = ExtResource("2_sqbbx")
+
+[node name="Area2D_LightPlayer" type="Area2D" parent="."]
+position = Vector2(0, 16)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_LightPlayer"]
+shape = SubResource("RectangleShape2D_l0wb0")
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "area_light"
+object_type = 6

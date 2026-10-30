@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://3f8sior7em7a"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_u75nd"]
+[ext_resource type="PackedScene" uid="uid://bjgcuauwpy41d" path="res://objects/ui/menu/menu_item_title_bar.tscn" id="2_v25iu"]
+[ext_resource type="PackedScene" uid="uid://hc8gvdg03bpo" path="res://objects/ui/menu/menu_item_button.tscn" id="3_6atal"]
+[ext_resource type="PackedScene" uid="uid://mkrn1dowrter" path="res://objects/ui/menu/menu_item_gap.tscn" id="4_7s1qe"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="Settings" type="VBoxContainer"]
+texture_filter = 1
+offset_right = 256.0
+offset_bottom = 165.0
+theme_override_constants/separation = 0
+script = ExtResource("1_u75nd")
+
+[node name="Title" parent="." instance=ExtResource("2_v25iu")]
+layout_mode = 2
+title = "Settings"
+
+[node name="Graphics" parent="." instance=ExtResource("3_6atal")]
+layout_mode = 2
+id = "graphics"
+title = "Graphics"
+
+[node name="Audio" parent="." instance=ExtResource("3_6atal")]
+layout_mode = 2
+id = "audio"
+title = "Audio"
+
+[node name="Controls" parent="." instance=ExtResource("3_6atal")]
+layout_mode = 2
+id = "controls"
+title = "Controls"
+
+[node name="MenuItem_Gap" parent="." instance=ExtResource("4_7s1qe")]
+layout_mode = 2
+
+[node name="Back" parent="." instance=ExtResource("3_6atal")]
+layout_mode = 2
+id = "back"
+title = "Back"
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "settings"
+object_type = 4

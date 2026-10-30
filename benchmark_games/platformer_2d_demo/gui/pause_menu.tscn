@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dh71g61cm8k44"]
+
+[ext_resource type="Theme" uid="uid://da4noqsij73it" path="res://gui/theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://c0867yshdtmqr" path="res://gui/pause_menu.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bsyqg6eh3wl5i" path="res://gui/coins_counter.tscn" id="4"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="PauseMenu" type="Control" unique_id=373858072]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1419954983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.294118)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=357681381]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer" unique_id=1572352011]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=251219900]
+layout_mode = 2
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1099556458]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=665367690]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1478111114]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"
+
+[node name="CoinsCounter" parent="ColorRect" unique_id=1210852453 instance=ExtResource("4")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 105.0
+offset_bottom = 50.0
+
+[node name="Trackable" type="Node" parent="." unique_id=344452712]
+script = ExtResource("trackable_script")
+object_id = "pause_menu"
+object_type = 4
+
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

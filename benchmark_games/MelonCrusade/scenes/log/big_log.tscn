@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://0mnmbf5uoxd1"]
+
+[ext_resource type="Script" uid="uid://ctw2wfxu7ym8" path="res://scripts/log.gd" id="1_reyji"]
+[ext_resource type="PackedScene" uid="uid://cqmiobe4axfkd" path="res://assets/models/kenney_nature-kit/Models/FBX format/log_large.fbx" id="2_s4may"]
+[ext_resource type="PackedScene" uid="uid://stovxul1ryhk" path="res://scenes/log/water.tscn" id="3_ypeqe"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="4_sjvj0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hf6of"]
+size = Vector3(0.25, 0.25, 0.755)
+
+[node name="BigLog" type="RigidBody3D" unique_id=1962611134]
+gravity_scale = 0.0
+custom_integrator = true
+script = ExtResource("1_reyji")
+
+[node name="LogModel" parent="." unique_id=883592271 instance=ExtResource("2_s4may")]
+transform = Transform3D(-4.37114e-07, -8.74228e-07, -10, 0, -10, 8.74228e-07, -10, 3.82137e-14, 4.37114e-07, 0, 1.31759, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=432703017]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.0408602, 0)
+shape = SubResource("BoxShape3D_hf6of")
+
+[node name="Ambiant" parent="." unique_id=320365373 instance=ExtResource("3_ypeqe")]
+
+[node name="Trackable" type="Node" parent="." unique_id=1296854771]
+script = ExtResource("4_sjvj0")
+object_id = "Big_Log"
+object_type = 4
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

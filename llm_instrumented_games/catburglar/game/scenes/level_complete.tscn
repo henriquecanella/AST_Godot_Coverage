@@ -1,0 +1,306 @@
+[gd_scene load_steps=10 format=3 uid="uid://bylhny47vikrl"]
+
+[ext_resource type="FontFile" uid="uid://cwgn18qi488vs" path="res://fonts/breamcatcher rg.otf" id="1_0g4j8"]
+[ext_resource type="Script" path="res://scenes/level_complete.gd" id="1_pultl"]
+[ext_resource type="Texture2D" uid="uid://dhtloiom8evcj" path="res://sprites/level_complete.png" id="2_r3vtg"]
+[ext_resource type="AudioStream" uid="uid://3561usoqegql" path="res://audio/music/results.ogg" id="4_kprox"]
+[ext_resource type="PackedScene" uid="uid://cxucawp22wfyt" path="res://objects/ui/prompt.tscn" id="4_rmt7p"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="Animation" id="Animation_njyte"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Banner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(320, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-720, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GridContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio_BGM:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Prompt:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m4vsn"]
+resource_name = "disappear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Banner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 0.25),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(320, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(-720, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GridContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio_BGM:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -60.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Prompt:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t38e5"]
+_data = {
+"appear": SubResource("Animation_njyte"),
+"disappear": SubResource("Animation_m4vsn")
+}
+
+[node name="LevelComplete" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pultl")
+
+[node name="Banner" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 1600.0
+offset_bottom = 720.0
+texture = ExtResource("2_r3vtg")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 48.0
+offset_right = 482.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("1_0g4j8")
+theme_override_font_sizes/font_size = 100
+text = "Level Complete"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 477.0
+offset_bottom = 616.0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = -24
+columns = 2
+
+[node name="Label_TimeTaken_Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("1_0g4j8")
+theme_override_font_sizes/font_size = 50
+text = "Time"
+vertical_alignment = 1
+
+[node name="Label_TimeTaken_Value" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0g4j8")
+theme_override_font_sizes/font_size = 100
+text = "00:00.000"
+horizontal_alignment = 2
+
+[node name="Label_Loot_Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("1_0g4j8")
+theme_override_font_sizes/font_size = 50
+text = "Loot"
+vertical_alignment = 1
+
+[node name="Label_Loot_Value" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0g4j8")
+theme_override_font_sizes/font_size = 100
+text = "$0"
+horizontal_alignment = 2
+
+[node name="Label_Alerts_Label" type="Label" parent="GridContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("1_0g4j8")
+theme_override_font_sizes/font_size = 50
+text = "Alerts"
+vertical_alignment = 1
+
+[node name="Label_Alerts_Value" type="Label" parent="GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0g4j8")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 2
+
+[node name="Label_Rank_Label" type="Label" parent="GridContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("1_0g4j8")
+theme_override_font_sizes/font_size = 50
+text = "Rank"
+vertical_alignment = 1
+
+[node name="Label_Rank_Value" type="Label" parent="GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0g4j8")
+theme_override_font_sizes/font_size = 100
+text = "A"
+horizontal_alignment = 2
+
+[node name="Prompt" parent="." instance=ExtResource("4_rmt7p")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 64.0
+offset_top = 640.0
+offset_right = 447.0
+offset_bottom = 680.0
+title = "Continue"
+action_name = "interact"
+
+[node name="Audio_BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kprox")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t38e5")
+}
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "level_complete"
+object_type = 4
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

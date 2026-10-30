@@ -1,0 +1,11 @@
+game,human_nodes,llm_nodes,nodes_diff_pct,human_inst_loc,llm_inst_loc,inst_loc_diff_pct,scene_recall_pct,scene_precision_pct,script_recall_pct,script_precision_pct
+Catburglar,50,54,+8.0%,340,356,+4.7%,100.0%,100.0%,100.0%,100.0%
+Chromavescence,9,10,+11.1%,60,68,+13.3%,100.0%,100.0%,100.0%,80.0%
+Dead Men Scale No Towers,20,39,+95.0%,129,216,+67.4%,100.0%,90.9%,100.0%,70.6%
+Foma,13,14,+7.7%,88,77,-12.5%,100.0%,92.9%,100.0%,100.0%
+Get That Bit,10,11,+10.0%,61,73,+19.7%,100.0%,85.7%,100.0%,90.9%
+Super Mario 63 Redux,201,156,-22.4%,1258,1078,-14.3%,100.0%,100.0%,100.0%,100.0%
+Melon Crusade,12,12,0.0%,75,72,-4.0%,100.0%,100.0%,100.0%,100.0%
+Papoila's Fairy Rescue,8,13,+62.5%,55,91,+65.5%,100.0%,72.7%,100.0%,57.1%
+Platformer 2D Demo,11,11,0.0%,63,70,+11.1%,100.0%,100.0%,100.0%,100.0%
+Shell Jump Go,4,5,+25.0%,25,33,+32.0%,100.0%,100.0%,100.0%,80.0%

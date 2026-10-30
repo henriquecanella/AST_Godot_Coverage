@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtgqt2tuo0uwg"]
+
+[ext_resource type="Script" path="res://objects/treasure.gd" id="1_dcr4a"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6cu4"]
+size = Vector2(12, 16)
+
+[node name="Treasure" type="Area2D" groups=["interactable", "stealable"]]
+z_index = -10
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_dcr4a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y6cu4")
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "treasure"
+object_type = 2

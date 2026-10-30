@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://5vyfx6fuu3b0"]
+
+[ext_resource type="Texture2D" uid="uid://vsjs6r33o0sl" path="res://classes/decorative/bobush.png" id="1"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script_auto"]
+
+[node name="BoBush" type="Sprite2D"]
+z_index = -1
+position = Vector2(0, -10)
+texture = ExtResource("1")
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script_auto")
+object_id = "bobush"
+object_type = 3
+

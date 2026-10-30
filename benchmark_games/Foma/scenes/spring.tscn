@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bwqcboh6s02yw"]
+
+[ext_resource type="Script" uid="uid://tgppdofuam36" path="res://scripts/spring.gd" id="1_lhcdy"]
+[ext_resource type="Texture2D" uid="uid://cup0jbbibutto" path="res://assets/kenney_pixelplatformer/Tiles/tile_0108.png" id="1_yqpdi"]
+[ext_resource type="Texture2D" uid="uid://dip8bd503qngb" path="res://assets/kenney_pixelplatformer/Tiles/tile_0107.png" id="2_kghxn"]
+[ext_resource type="AudioStream" uid="uid://c8eloi07aclji" path="res://assets/sfx/sfx_bounce_01.wav" id="4_xmbpb"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="5_l13eo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy8xy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1ybw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yqpdi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kghxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_yqpdi")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 14.0
+}]
+
+[node name="Spring" type="Area2D" unique_id=318074565]
+collision_mask = 2
+input_pickable = false
+monitorable = false
+script = ExtResource("1_lhcdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=305174919]
+shape = SubResource("RectangleShape2D_fy8xy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=150750463]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_y1ybw")
+frame = 2
+frame_progress = 1.0
+
+[node name="Bounce" type="AudioStreamPlayer" parent="." unique_id=748476271]
+unique_name_in_owner = true
+stream = ExtResource("4_xmbpb")
+volume_db = -7.495
+bus = &"Sfx"
+
+[node name="Trackable" type="Node" parent="." unique_id=179464926]
+script = ExtResource("5_l13eo")
+object_id = "Spring"
+object_type = 4
+metadata/_custom_type_script = "uid://631jm7xfjvbg"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

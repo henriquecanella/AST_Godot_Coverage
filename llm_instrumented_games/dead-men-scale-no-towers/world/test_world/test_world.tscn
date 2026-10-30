@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=4 uid="uid://cm03hqdjrnrpy"]
+
+[ext_resource type="PackedScene" uid="uid://doeqxwug3v7d2" path="res://entities/jon/jon.tscn" id="1_jk6t4"]
+[ext_resource type="PackedScene" uid="uid://d1jg1mi7h4hle" path="res://entities/piton_gem/piton_gem.tscn" id="2_ovxoy"]
+[ext_resource type="TileSet" uid="uid://byjjmm6xs8nr8" path="res://world/assets/brick_tileset.tres" id="3_jucwc"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_qn54g"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_t2x8f"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_lua4g"]
+[ext_resource type="Texture2D" uid="uid://bwjl8bpmh8khg" path="res://world/assets/forest_background.png" id="7_sss5b"]
+
+[sub_resource type="Resource" id="Resource_5jyfs"]
+script = ExtResource("6_lua4g")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="TestWorld" type="Node2D"]
+
+[node name="Jon" parent="." instance=ExtResource("1_jk6t4")]
+position = Vector2(128, 96)
+
+[node name="PitonGem" parent="." instance=ExtResource("2_ovxoy")]
+position = Vector2(176, 48)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, -64)
+tile_map_data = PackedByteArray("AAABAA4AAAAIAAAAAAACAA4AAAAFAAEAAAADAA4AAAAJAAIAAAAEAA4AAAAGAAEAAAAFAA4AAAAKAAAAAAAGAA4AAAAKAAAAAAAHAA4AAAAKAAAAAAAIAA4AAAAKAAAAAAAJAA4AAAAKAAAAAAAKAA4AAAAKAAAAAAALAA4AAAAKAAAAAAAMAA4AAAAKAAAAAAANAA4AAAAFAAEAAAAOAA4AAAAGAAIAAAAPAA4AAAALAAMAAAAOAA8AAAALAAMAAAANAA8AAAAJAAMAAAAMAA8AAAAJAAMAAAALAA8AAAAJAAMAAAAKAA8AAAAJAAMAAAAJAA8AAAAJAAMAAAAIAA8AAAAJAAMAAAAHAA8AAAAJAAMAAAAGAA8AAAAJAAMAAAAFAA8AAAAJAAMAAAAEAA8AAAAJAAMAAAADAA8AAAAJAAMAAAACAA8AAAAJAAMAAAABAA8AAAAIAAMAAAAOAA0AAAAJAAIAAAANAA0AAAAIAAEAAAAEAA0AAAALAAAAAAADAA0AAAAJAAAAAAADAAwAAAAAAAAAAAACAA0AAAAIAAAAAAAPAA0AAAALAAIAAAAPAAwAAAALAAIAAAAPAAsAAAALAAIAAAAPAAoAAAALAAAAAAAOAAkAAAALAAAAAAAOAAoAAAAGAAEAAAAOAAsAAAAJAAIAAAANAAoAAAAIAAEAAAANAAkAAAAIAAAAAAANAAgAAQACAAAAAAAOAAgAAQACAAAAAAAAAAQAAQACAAAAAAAAAAUAAAAAAAMAAAAEAAEAAQACAAAAAAAEAAIAAAAAAAMAAAAFAAMAAQACAAAAAAAFAAQAAAAIAAAAAAAFAAUAAAAIAAMAAAAGAAMAAQACAAAAAAAGAAQAAAALAAAAAAAGAAUAAAALAAMAAAAOAAwAAAAJAAIAAAANAAwAAAAIAAEAAAANAAsAAAAIAAEAAAA=")
+tile_set = ExtResource("3_jucwc")
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = -1
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_top = -528.0
+offset_right = 608.0
+offset_bottom = 192.0
+mouse_filter = 2
+color = Color(0.99, 0.969375, 0.7425, 0.129412)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+z_index = -1
+position = Vector2(0, -64)
+tile_map_data = PackedByteArray("AAAOAAsAAgADAAMAAAANAAsAAgALAAEAAAANAAoAAgALAAIAAAAMAAoAAgAJAAIAAAALAAoAAgAIAAEAAAALAAsAAgAIAAMAAAAMAAsAAgAFAAIAAAAMAAkAAgAJAAIAAAALAAkAAgAFAAIAAAANAAkAAgALAAIAAAANAAgAAgALAAAAAAAMAAgAAgAGAAEAAAAMAAcAAgALAAAAAAALAAcAAgAKAAAAAAAKAAcAAgAKAAAAAAAKAAgAAgAFAAIAAAAKAAkAAgAIAAMAAAALAAgAAgAJAAIAAAAJAAcAAgAGAAEAAAAJAAgAAgAJAAMAAAAJAAYAAgALAAAAAAAIAAYAAgAKAAAAAAAIAAcAAgAJAAIAAAAHAAcAAgAIAAEAAAAHAAYAAgAKAAIAAAAHAAUAAgALAAAAAAAGAAUAAgAHAAMAAAAGAAYAAgAIAAMAAAAGAAQAAgAAAAAAAAAFAAUAAgABAAMAAAAHAAgAAgAFAAMAAAAGAAgAAgAGAAAAAAAGAAkAAgALAAMAAAAFAAgAAgAIAAAAAAAFAAkAAgAJAAEAAAAFAAoAAgALAAIAAAAEAAkAAgAIAAAAAAAEAAoAAgAFAAEAAAADAAoAAgAIAAAAAAADAAsAAgAIAAEAAAADAAwAAgAIAAEAAAAEAAsAAgAJAAIAAAAEAAwAAgAJAAIAAAAFAAwAAgALAAIAAAAFAAsAAgALAAIAAAAFAA0AAgAGAAEAAAAFAA4AAgAJAAMAAAAEAA0AAgAFAAIAAAADAA0AAgAIAAMAAAAIAAgAAgAJAAMAAAAGAA0AAgAKAAAAAAAHAA0AAgAKAAAAAAAIAA0AAgAKAAAAAAAJAA0AAgAKAAAAAAAKAA0AAgAKAAAAAAALAA0AAgAKAAAAAAAMAA0AAgAFAAEAAAANAA0AAgALAAIAAAANAA4AAgALAAMAAAAMAA4AAgAJAAMAAAALAA4AAgAJAAMAAAAKAA4AAgAJAAMAAAAJAA4AAgAJAAMAAAAIAA4AAgAJAAMAAAAEAA4AAgAIAAMAAAAGAA4AAgAJAAMAAAAHAA4AAgAJAAMAAAAMAAwAAgAIAAEAAAANAAwAAgALAAIAAAA=")
+tile_set = ExtResource("3_jucwc")
+
+[node name="PhantomCamera2D2" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(160, 90)
+script = ExtResource("5_t2x8f")
+follow_mode = 5
+follow_target = NodePath("../Jon")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_5jyfs")
+follow_offset = Vector2(16, 0)
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_left = 0
+limit_bottom = 180
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(160, 90)
+limit_left = 0
+limit_bottom = 180
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("4_qn54g")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="ForestBackground" type="Sprite2D" parent="Parallax2D"]
+z_index = -6
+position = Vector2(160, -80)
+texture = ExtResource("7_sss5b")

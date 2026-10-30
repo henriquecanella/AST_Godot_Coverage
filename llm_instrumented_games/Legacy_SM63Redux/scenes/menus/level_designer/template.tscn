@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b4lxw5oapijsf"]
+
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script_auto"]
+
+[node name="Template" type="Node2D"]
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Water" type="Node2D" parent="."]
+
+[node name="CameraLimits" type="Node2D" parent="."]
+
+[node name="Pipescript" type="Node2D" parent="."]
+
+[node name="Other" type="Node2D" parent="."]
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script_auto")
+object_id = "template"
+object_type = 4
+

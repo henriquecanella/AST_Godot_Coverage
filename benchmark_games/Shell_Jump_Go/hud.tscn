@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://tc3nbcajbnkq"]
+
+[ext_resource type="Script" uid="uid://djym5suji0ln6" path="res://hud.gd" id="1_rb1vs"]
+[ext_resource type="Texture2D" uid="uid://xy1b6m8m65kx" path="res://art/scoreblock2.png" id="1_w01i4"]
+[ext_resource type="Texture2D" uid="uid://di2pw4eagbug6" path="res://art/scoreblock.png" id="2_umoo8"]
+[ext_resource type="FontFile" uid="uid://bp3b8yqtffg18" path="res://fonts/Xolonium-Regular.ttf" id="2_vo6tp"]
+[ext_resource type="Texture2D" uid="uid://dpgvgvqr5ccw0" path="res://art/pause.png" id="5_2ayeh"]
+[ext_resource type="Texture2D" uid="uid://bhbwb3qx4myed" path="res://art/pauseimage.png" id="5_tvhs7"]
+[ext_resource type="Texture2D" uid="uid://dlglb1mpdkk1u" path="res://art/gameover.png" id="6_m8yd5"]
+[ext_resource type="Texture2D" uid="uid://chprlk2q77572" path="res://art/resume.png" id="7_6npok"]
+[ext_resource type="Texture2D" uid="uid://e2qla0yo4sxv" path="res://art/quit.png" id="8_2nh0r"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="10_gpiub"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6sw2f"]
+font = ExtResource("2_vo6tp")
+font_size = 46
+font_color = Color(0.270588, 0.156863, 0.235294, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aoy8t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etmjq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2yfa6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tc1sw"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1249906907]
+script = ExtResource("1_rb1vs")
+
+[node name="pausebg" type="ColorRect" parent="." unique_id=1599524174]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1559979673]
+visible = false
+z_index = 1
+offset_left = 435.0
+offset_right = 600.0
+offset_bottom = 55.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_6sw2f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scoreblock" type="Sprite2D" parent="." unique_id=274414630]
+visible = false
+position = Vector2(510, 35)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_w01i4")
+
+[node name="Scoreblock2" type="Sprite2D" parent="." unique_id=1613745353]
+visible = false
+position = Vector2(285, 33)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_umoo8")
+
+[node name="Pause" type="Button" parent="." unique_id=1138982737]
+visible = false
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 205.0
+offset_bottom = 286.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.52549, 1, 0.894118, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aoy8t")
+icon = ExtResource("5_2ayeh")
+flat = true
+icon_alignment = 1
+
+[node name="PauseText" type="Sprite2D" parent="." unique_id=1667338239]
+visible = false
+position = Vector2(300, 309)
+texture = ExtResource("5_tvhs7")
+
+[node name="Gameover" type="Sprite2D" parent="." unique_id=678584587]
+visible = false
+position = Vector2(300, 312)
+texture = ExtResource("6_m8yd5")
+
+[node name="Restart" type="Button" parent="." unique_id=1727881568]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 182.5
+offset_top = -414.0
+offset_right = 660.5
+offset_bottom = -196.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.52549, 1, 0.894118, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_etmjq")
+icon = ExtResource("7_6npok")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Quit" type="Button" parent="." unique_id=1155026166]
+process_mode = 3
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 182.5
+offset_top = -254.0
+offset_right = 660.5
+offset_bottom = -36.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.52549, 1, 0.894118, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2yfa6")
+icon = ExtResource("8_2nh0r")
+flat = true
+
+[node name="Continue" type="Button" parent="." unique_id=1380992706]
+process_mode = 3
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 182.5
+offset_top = -414.0
+offset_right = 660.5
+offset_bottom = -196.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.52549, 1, 0.894118, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tc1sw")
+icon = ExtResource("7_6npok")
+flat = true
+
+[node name="Trackable" type="Node" parent="." unique_id=828559614]
+script = ExtResource("10_gpiub")
+object_id = "HUD"
+object_type = 4
+metadata/_custom_type_script = "uid://631jm7xfjvbg"
+
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

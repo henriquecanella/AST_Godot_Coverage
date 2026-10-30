@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvaq2d5kw48yf"]
+
+[ext_resource type="Script" path="res://objects/ui/menu/menu_item_volume.gd" id="1_8c68c"]
+[ext_resource type="Texture2D" uid="uid://cfg2606jggekv" path="res://sprites/ui/menu/volume.png" id="2_g61n2"]
+[ext_resource type="FontFile" uid="uid://cwgn18qi488vs" path="res://fonts/breamcatcher rg.otf" id="2_mlgge"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81e2m"]
+atlas = ExtResource("2_g61n2")
+region = Rect2(0, 0, 160, 54)
+
+[node name="MenuItem_Volume" type="HBoxContainer"]
+texture_filter = 1
+offset_right = 320.0
+offset_bottom = 30.0
+script = ExtResource("1_8c68c")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mlgge")
+theme_override_font_sizes/font_size = 44
+text = "Volume"
+
+[node name="Volume" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_81e2m")
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "menu_item_volume"
+object_type = 4

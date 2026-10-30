@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://btl1s3iwq3lls"]
+
+
+[ext_resource type="Script" path="res://objects/ui/menu/menu_item_tickbox.gd" id="1_0nix2"]
+[ext_resource type="Texture2D" uid="uid://c5lcmqysrcfsj" path="res://sprites/ui/menu/tickbox_on.png" id="2_dma82"]
+[ext_resource type="FontFile" uid="uid://cwgn18qi488vs" path="res://fonts/breamcatcher rg.otf" id="2_goh82"]
+[ext_resource type="Script" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="MenuItem_Tickbox" type="HBoxContainer"]
+offset_right = 512.0
+offset_bottom = 54.0
+script = ExtResource("1_0nix2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_goh82")
+theme_override_font_sizes/font_size = 44
+text = "Tickbox"
+
+[node name="Box" type="TextureRect" parent="."]
+texture_filter = 2
+layout_mode = 2
+texture = ExtResource("2_dma82")
+expand_mode = 3
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "menu_item_tickbox"
+object_type = 6

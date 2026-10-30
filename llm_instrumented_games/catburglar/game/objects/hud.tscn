@@ -1,0 +1,337 @@
+[gd_scene load_steps=16 format=3 uid="uid://ctu21mpqd6ic7"]
+
+[ext_resource type="Script" path="res://objects/hud.gd" id="1_u7oft"]
+[ext_resource type="Texture2D" uid="uid://d1o2i1yqn177x" path="res://sprites/ui/circle.png" id="5_78t5h"]
+[ext_resource type="Texture2D" uid="uid://ceudyh73hkp8j" path="res://sprites/ui/eye.png" id="6_eh55u"]
+[ext_resource type="FontFile" uid="uid://c4edf8hd56tf2" path="res://fonts/CaviarDreams_Bold.ttf" id="7_qhic6"]
+[ext_resource type="FontFile" uid="uid://dobcyrrdj03ub" path="res://fonts/CaviarDreams.ttf" id="8_ererx"]
+[ext_resource type="Texture2D" uid="uid://ckbn23ym0rqk5" path="res://sprites/mugshot.png" id="8_ijmbr"]
+[ext_resource type="PackedScene" uid="uid://cxucawp22wfyt" path="res://objects/ui/prompt.tscn" id="8_jf8jl"]
+[ext_resource type="Shader" path="res://shaders/game_over.gdshader" id="8_w2msb"]
+[ext_resource type="Texture2D" uid="uid://cki0solhdng5r" path="res://sprites/gradient.png" id="9_k6bj4"]
+[ext_resource type="PackedScene" uid="uid://dv15ok1gu3g6l" path="res://objects/minigame.tscn" id="9_nlp0m"]
+[ext_resource type="AudioStream" uid="uid://b80g1dh2q6h7i" path="res://audio/sfx/in_light.ogg" id="13_psved"]
+[ext_resource type="AudioStream" uid="uid://bir8ppghsvjc7" path="res://audio/sfx/in_shadow.ogg" id="14_23eio"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l8ofe"]
+blend_mode = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7nc1o"]
+shader = ExtResource("8_w2msb")
+shader_parameter/amount = 0.0
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_u7oft")
+
+[node name="Visibility" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 16.0
+offset_right = 96.0
+offset_bottom = 48.0
+grow_horizontal = 2
+
+[node name="Oval" type="NinePatchRect" parent="Visibility"]
+modulate = Color(0.2, 0.223529, 0.254902, 1)
+layout_mode = 0
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 200.0
+offset_bottom = 35.0
+texture = ExtResource("5_78t5h")
+patch_margin_left = 20
+patch_margin_right = 20
+
+[node name="Label_Visibility_Label" type="Label" parent="Visibility"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.701961, 0.72549, 0.819608, 1)
+theme_override_colors/font_shadow_color = Color(0.2, 0.223529, 0.254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_qhic6")
+theme_override_font_sizes/font_size = 24
+text = "IN LIGHT"
+horizontal_alignment = 1
+
+[node name="Texture_Eye_Left" type="TextureRect" parent="Visibility"]
+modulate = Color(0.701961, 0.72549, 0.819608, 1)
+layout_mode = 0
+offset_top = 5.0
+offset_right = 25.3333
+offset_bottom = 24.0
+texture = ExtResource("6_eh55u")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Texture_Eye_Right" type="TextureRect" parent="Visibility"]
+modulate = Color(0.701961, 0.72549, 0.819608, 1)
+layout_mode = 0
+offset_left = 166.0
+offset_top = 5.0
+offset_right = 191.333
+offset_bottom = 24.0
+texture = ExtResource("6_eh55u")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Loot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 256.0
+offset_bottom = 48.0
+
+[node name="Label_Loot_Label" type="Label" parent="Loot"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.701961, 0.72549, 0.819608, 1)
+theme_override_colors/font_shadow_color = Color(0.2, 0.223529, 0.254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_qhic6")
+theme_override_font_sizes/font_size = 24
+text = "LOOT"
+
+[node name="Label_Loot_Value" type="Label" parent="Loot"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 80.0
+offset_right = 146.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.854902, 0.878431, 0.917647, 1)
+theme_override_colors/font_shadow_color = Color(0.2, 0.223529, 0.254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("8_ererx")
+theme_override_font_sizes/font_size = 24
+text = "$0"
+
+[node name="Label_LootDescription" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 640.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(0.854902, 0.878431, 0.917647, 1)
+theme_override_colors/font_shadow_color = Color(0.2, 0.223529, 0.254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("8_ererx")
+theme_override_font_sizes/font_size = 24
+text = "Description of the thing you just stole."
+
+[node name="Objective" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 672.0
+offset_right = 1024.0
+offset_bottom = 704.0
+
+[node name="Label_Objective_Label" type="Label" parent="Objective"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.701961, 0.72549, 0.819608, 1)
+theme_override_colors/font_shadow_color = Color(0.2, 0.223529, 0.254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_qhic6")
+theme_override_font_sizes/font_size = 24
+text = "OBJECTIVE"
+
+[node name="Label_Objective_Value" type="Label" parent="Objective"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 144.0
+offset_right = 936.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.854902, 0.878431, 0.917647, 1)
+theme_override_colors/font_shadow_color = Color(0.2, 0.223529, 0.254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("8_ererx")
+theme_override_font_sizes/font_size = 24
+text = "Steal at least $500 worth of loot."
+
+[node name="Dialogue" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 536.0
+offset_right = 640.0
+offset_bottom = 656.0
+
+[node name="TextureRect" type="TextureRect" parent="Dialogue"]
+material = SubResource("CanvasItemMaterial_l8ofe")
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 120.0
+texture = ExtResource("9_k6bj4")
+
+[node name="Mugshot" type="TextureRect" parent="Dialogue"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 120.0
+texture = ExtResource("8_ijmbr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label_Speaker" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 8.0
+offset_right = 221.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("7_qhic6")
+theme_override_font_sizes/font_size = 20
+text = "C Y N T H"
+
+[node name="Label_Line" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 32.0
+offset_right = 640.0
+offset_bottom = 113.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("8_ererx")
+theme_override_font_sizes/font_size = 20
+text = "Good to see Cronjager's still finding work, but those eyes of his aren't doing him any favours. As long as I'm in the dark, I'm invisible."
+autowrap_mode = 2
+
+[node name="Hint" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 640.0
+offset_top = 536.0
+offset_right = 1280.0
+offset_bottom = 608.0
+
+[node name="TextureRect" type="TextureRect" parent="Hint"]
+material = SubResource("CanvasItemMaterial_l8ofe")
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 72.0
+texture = ExtResource("9_k6bj4")
+flip_h = true
+
+[node name="Label_Line" type="Label" parent="Hint"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 624.0
+offset_bottom = 64.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("8_ererx")
+theme_override_font_sizes/font_size = 20
+text = "Furniture that is positioned in front of Cynth can act as cover. Duck while in front of it to remind out of sight."
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Prompt" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -56.0
+offset_right = 96.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Oval" type="NinePatchRect" parent="Prompt"]
+modulate = Color(0.2, 0.223529, 0.254902, 1)
+layout_mode = 0
+offset_left = -8.0
+offset_right = 200.0
+offset_bottom = 40.0
+texture = ExtResource("5_78t5h")
+patch_margin_left = 20
+patch_margin_right = 20
+
+[node name="Prompt" parent="Prompt" instance=ExtResource("8_jf8jl")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -40.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
+title = "Interact"
+action_name = "interact"
+
+[node name="Minigame" parent="." instance=ExtResource("9_nlp0m")]
+position = Vector2(1440, 560)
+scale = Vector2(4, 4)
+
+[node name="Greyout" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7nc1o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer_HideHint" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Timer_HideLootDescription" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Audio_VO" type="AudioStreamPlayer" parent="."]
+bus = &"vo"
+
+[node name="Audio_InLight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_psved")
+volume_db = -10.0
+bus = &"ui"
+
+[node name="Audio_InShadow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_23eio")
+volume_db = -10.0
+bus = &"ui"
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "hud"
+object_type = 4
+
+[connection signal="failed" from="Minigame" to="." method="_on_minigame_failed"]
+[connection signal="succeeded" from="Minigame" to="." method="_on_minigame_succeeded"]
+[connection signal="timeout" from="Timer_HideHint" to="." method="_on_timer_hide_hint_timeout"]
+[connection signal="timeout" from="Timer_HideLootDescription" to="." method="_on_timer_hide_loot_description_timeout"]
+[connection signal="finished" from="Audio_VO" to="." method="_on_audio_vo_finished"]

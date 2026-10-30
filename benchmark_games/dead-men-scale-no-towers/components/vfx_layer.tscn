@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b5ibx5hau2rgw"]
+
+[ext_resource type="Shader" uid="uid://cgiue1qyycppn" path="res://entities/effects/screen_shake.gdshader" id="1_2ts4x"]
+[ext_resource type="Script" uid="uid://bvnpucgsgahir" path="res://components/vfx_layer.gd" id="1_8pb71"]
+[ext_resource type="Shader" uid="uid://bvviorugjawqp" path="res://components/gui/vignette.gdshader" id="3_g8ppb"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="4_ycdcs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ygxn"]
+shader = ExtResource("1_2ts4x")
+shader_parameter/strength = 2.0
+shader_parameter/speed = 48.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_35h22"]
+shader = ExtResource("1_2ts4x")
+shader_parameter/strength = 1.0
+shader_parameter/speed = 48.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_00v7v"]
+shader = ExtResource("3_g8ppb")
+shader_parameter/inner_radius = 0.1
+shader_parameter/outer_radius = 1.2
+shader_parameter/vignette_strength = 0.5
+shader_parameter/dither_strength = 0.03
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[node name="VfxLayer" type="CanvasLayer" unique_id=1567674476 node_paths=PackedStringArray("screen_shake_strong_layer", "screen_shake_weak_layer")]
+process_mode = 3
+script = ExtResource("1_8pb71")
+screen_shake_strong_layer = NodePath("ScreenShakeStrong")
+screen_shake_weak_layer = NodePath("ScreenShakeWeak")
+
+[node name="ScreenShakeStrong" type="ColorRect" parent="." unique_id=1125410771]
+visible = false
+material = SubResource("ShaderMaterial_4ygxn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScreenShakeWeak" type="ColorRect" parent="." unique_id=1252054476]
+visible = false
+material = SubResource("ShaderMaterial_35h22")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=251438739]
+material = SubResource("ShaderMaterial_00v7v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Trackable" type="Node" parent="." unique_id=916818781]
+script = ExtResource("4_ycdcs")
+object_id = "VFX_Layer"
+object_type = 4
+metadata/_custom_type_script = "uid://631jm7xfjvbg"

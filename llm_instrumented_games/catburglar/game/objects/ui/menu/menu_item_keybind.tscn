@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfulh2dvrrw3"]
+
+[ext_resource type="Script" path="res://objects/ui/menu/menu_item_keybind.gd" id="1_aucan"]
+[ext_resource type="FontFile" uid="uid://cwgn18qi488vs" path="res://fonts/breamcatcher rg.otf" id="2_drwbu"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3f52f"]
+load_path = "res://.godot/imported/controller_icons.png-e70d88880307bc3d080427da2bea682f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pfwc"]
+atlas = SubResource("CompressedTexture2D_3f52f")
+region = Rect2(0, 0, 64, 64)
+margin = Rect2(0, 1, 0, 3)
+
+[node name="MenuItem_Keybind" type="HBoxContainer" groups=["keybind_or_prompt"]]
+texture_filter = 1
+offset_right = 512.0
+offset_bottom = 54.0
+theme_override_constants/separation = 0
+script = ExtResource("1_aucan")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_drwbu")
+theme_override_font_sizes/font_size = 44
+text = "Action Name"
+
+[node name="Key" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_drwbu")
+theme_override_font_sizes/font_size = 44
+text = "[Space] / "
+
+[node name="Button" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_3pfwc")
+expand_mode = 3
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "menu_item_keybind"
+object_type = 4

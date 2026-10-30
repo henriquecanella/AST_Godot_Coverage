@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctg8603hwn317"]
+
+[ext_resource type="Script" path="res://objects/ui/menu/menu_item_selector.gd" id="1_fusu7"]
+[ext_resource type="FontFile" uid="uid://cwgn18qi488vs" path="res://fonts/breamcatcher rg.otf" id="2_0f3oo"]
+[ext_resource type="Texture2D" uid="uid://bokiwta3nrtei" path="res://sprites/ui/menu/scroller_left.png" id="2_dpqxr"]
+[ext_resource type="Texture2D" uid="uid://ch38k5vh3taho" path="res://sprites/ui/menu/scroller_right.png" id="3_60wbq"]
+[ext_resource type="Script" uid="uid://631jm7xfjvbg" path="res://addons/godot_coverage_metrics/trackable.gd" id="trackable_script"]
+
+[node name="MenuItem_Selector" type="HBoxContainer"]
+texture_filter = 1
+offset_right = 512.0
+offset_bottom = 54.0
+script = ExtResource("1_fusu7")
+values = Array[String](["Value"])
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_0f3oo")
+theme_override_font_sizes/font_size = 44
+text = "Selector"
+
+[node name="ArrowLeft" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_dpqxr")
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0f3oo")
+theme_override_font_sizes/font_size = 44
+text = "Value"
+
+[node name="ArrowRight" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_60wbq")
+
+
+[node name="Trackable" type="Node" parent="."]
+script = ExtResource("trackable_script")
+object_id = "menu_item_selector"
+object_type = 4

@@ -1,0 +1,11 @@
+game,manual_instrumentation_time_mins,player_nodes,enemy_nodes,collectable_nodes,npc_nodes,interactable_nodes,hazard_nodes,total_trackable_nodes
+Get That Bit,12,5,0,1,0,4,0,10
+Dead Men Scale No Towers,25,3,0,1,1,15,0,20
+Melon Crusade,9,2,0,1,0,5,4,12
+Papoila's Fairy Rescue,6,1,3,2,0,2,0,8
+Catburglar,176,2,2,1,1,44,0,50
+Foma,7,1,0,3,0,8,1,13
+Chromavescence,7,1,0,1,0,6,0,9
+Shell Jump Go,3,2,0,0,0,2,0,4
+Platformer 2D Demo,27,5,1,2,0,3,0,11
+Super Mario 63 Redux,284,0,5,9,10,171,6,201

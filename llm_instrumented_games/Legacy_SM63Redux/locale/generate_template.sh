@@ -1,0 +1,1 @@
+pybabel extract -F babelrc -k tr -k text -k LineEdit/placeholder_text -k lines -o redux.pot .. --omit-header
